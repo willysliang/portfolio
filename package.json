@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=7"
+  },
+  "scripts": {
+    "clean-install": "rm -rf ./{packages}/*/node_modules node_modules && pnpm i",
+    "dev:app1": "pnpm -F \"lowcode-platform\" dev",
+    "build:app1": "pnpm -F \"lowcode-platform\" build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
