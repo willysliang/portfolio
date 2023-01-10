@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    // "allowJs": true, // 允许在ts中使用普通 JS 代码
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "react-jsx",
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "scripthost"],
+    "types": ["vite/client"],
+    "resolveJsonModule": true // 可导入JSON
+  },
+  "include": [
+    "vite.config.ts"
+  ],
+  "exclude": ["node_modules", "**/*.ts", "dist", "**/*.js"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
