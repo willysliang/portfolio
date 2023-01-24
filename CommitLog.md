@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-24 16:35:36
+ * @ Modified time: 2023-01-24 19:55:14
  * @ Description: 提交日志
 ---
 
@@ -22,6 +22,10 @@
   - types 类型定义文件更改
   - wip 开发中
 
+
+## 2023年1月24日19:53:50
+  - ci(@willy/utils): 创建项目的通用工具包
+  - refactor(@willy/lbk): 配置优化
 
 ## 2023年1月24日16:34:06
   - chore(all): 引入 stylelint、husky、commitlint
