@@ -1,0 +1,11 @@
+.login-pages {
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	box-sizing: border-box;
+	overflow: hidden;
+
+	.login-svg {
+		flex: 0;
+	}
+}

@@ -2,11 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 16:30:40
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 17:54:10
+ * @ Modified time: 2023-02-01 18:17:29
  * @ Description: 标签导航栏
  */
-import React, { ReactNode, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { ReactNode, useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Badge, TabBar } from 'antd-mobile'
 import {
   AppOutline,
@@ -51,6 +51,8 @@ const Tabbar = () => {
   const [activeKey, setActiveKey] = useState(Pages.HOME.path)
 
   const navigate = useNavigate()
+
+  /** 标签导航跳转 */
   const setRouteActive = (value: string) => {
     setActiveKey(value)
     navigate(value, {
@@ -61,8 +63,19 @@ const Tabbar = () => {
     })
   }
 
+  /** 当为登录页时导航栏隐藏 */
+  const { pathname } = useLocation()
+  const [isHidden, setIsHidden] = useState<boolean>(false)
+  useEffect(() => {
+    if (pathname === Pages.LOGIN.path) {
+      setIsHidden(true)
+    } else {
+      setIsHidden(false)
+    }
+  }, [pathname])
+
   return (
-    <div className="tabbar">
+    <div className="tabbar" style={{ display: isHidden ? 'none' : 'block' }}>
       <TabBar
         safeArea
         activeKey={activeKey}

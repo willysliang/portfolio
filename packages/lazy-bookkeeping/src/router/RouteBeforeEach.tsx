@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:05:37
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 15:59:12
+ * @ Modified time: 2023-02-01 18:17:06
  * @ Description: RouteBeforeEach 路由前置守卫
  */
 
@@ -27,7 +27,7 @@ export default function RouteBeforeEach(props: {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-  const isLogin = Storage.get(USER_TOKEN, null) === null
+  const isLogin = Storage.get(USER_TOKEN, null) !== null
   const { pathname } = useLocation()
 
   if (isLogin && whiteList.includes(pathname)) {

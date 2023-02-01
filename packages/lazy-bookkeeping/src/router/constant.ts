@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:06:20
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 17:45:00
+ * @ Modified time: 2023-02-01 18:07:02
  * @ Description: 路由常量
  */
 
@@ -41,7 +41,7 @@ export const Pages: Record<string, IRouteItem> = {
       title: '登录',
       needLogin: false,
     },
-    component: lazy(() => import('@/pages/system/Login')),
+    component: lazy(() => import('@/pages/system/login')),
   },
 }
 
