@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-12 16:47:33
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-24 18:30:53
+ * @ Modified time: 2023-01-28 11:31:14
  * @ Description: 项目配置
  */
 
@@ -42,7 +42,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "./src/assets/styles/var.scss";',
+        // additionalData: '@import "./src/assets/styles/var.scss";',
       },
     },
   },

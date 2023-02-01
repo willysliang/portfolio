@@ -9,7 +9,7 @@
       "@view/*": ["src/views/*"],
       "@type/*": ["src/types/*"],
       "@store/*": ["src/store/*"],
-      "@api/*": ["src/api/module/*"],
+      "@api/*": ["src/api/*"],
       "@util/*": ["src/utils/*"]
     },
   },

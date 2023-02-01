@@ -9,14 +9,14 @@ module.exports = {
     es6: true,
   },
   globals: {},
-  plugins: ['@typescript-eslint', 'react', 'prettier', 'react-hooks'],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended', // @eslint-plugin-react 的推荐规则
     'plugin:@typescript-eslint/recommended', // @typescript-eslint/eslint-plugin的推荐规则
     'plugin:import/typescript', // eslint-plugin-import 抛出导入等支持的规则
     'plugin:react-hooks/recommended', // eslint-plugin-react-hooks 的规则
-    'plugin:prettier/recommended', // eslint-plugin-prettier 的推荐规则
+    // 'plugin:prettier/recommended', // eslint-plugin-prettier 的推荐规则
   ],
   parser: '@typescript-eslint/parser', // 指定解析器
   parserOptions: {
@@ -42,6 +42,9 @@ module.exports = {
     semi: 'off',
     'no-tabs': 0,
     'func-call-spacing': 'off', // 函数存在意外空格
+    'no-empty': 0,
     '@typescript-eslint/no-non-null-assertion': 'off', // 可使用断言
+    'no-extend-native': 'off', // 原型中可添加属性
+    '@typescript-eslint/no-explicit-any': 'off', // 可使用any
   },
 }

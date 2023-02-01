@@ -2,48 +2,60 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-24 17:50:27
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-24 19:43:55
+ * @ Modified time: 2023-01-27 10:12:12
  * @ Description: http 状态码
  */
 
-export const errorMessage = (status: number | string, mes = ''): string => {
-  let message = ''
+/** 错误码解析 */
+export const errorMessage = (
+  status: unknown,
+  mes = '',
+): { status: unknown; msg: string } => {
+  let errorInfo = ''
   switch (status) {
     case 400:
-      message = '请求错误(400)'
+      errorInfo = '请求错误(400)'
       break
     case 401:
-      message = '未授权，请重新登录(401)'
+      errorInfo = '未授权，请重新登录(401)'
       break
     case 403:
-      message = '拒绝访问(403)'
+      errorInfo = '拒绝访问(403)'
       break
     case 404:
-      message = '请求出错(404)'
+      errorInfo = '资源不存在(404)'
+      break
+    case 405:
+      errorInfo = '请求未允许(405)'
       break
     case 408:
-      message = '请求超时(408)'
+      errorInfo = '请求超时(408)'
       break
     case 500:
-      message = '服务器错误(500)'
+      errorInfo = '访问服务失败(500)'
       break
     case 501:
-      message = '服务未实现(501)'
+      errorInfo = '服务未实现(501)'
       break
     case 502:
-      message = '网络错误(502)'
+      errorInfo = '无效网关(502)'
       break
     case 503:
-      message = '服务不可用(503)'
+      errorInfo = '服务不可用(503)'
       break
     case 504:
-      message = '网络超时(504)'
+      errorInfo = '网络超时(504)'
       break
     case 505:
-      message = 'HTTP版本不受支持(505)'
+      errorInfo = 'HTTP版本不受支持(505)'
       break
     default:
-      message = `连接出错(${status})，请检查网络或联系管理员！`
+      errorInfo = `连接出错(${status})，请检查网络或联系管理员！`
   }
-  return `${message}`
+
+  console.log(`请求错误：${!mes ? errorInfo : mes}`)
+  return {
+    status,
+    msg: `${!mes ? mes : errorInfo}`,
+  }
 }

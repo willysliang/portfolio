@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-24 19:55:14
+ * @ Modified time: 2023-02-01 10:22:52
  * @ Description: 提交日志
 ---
 
@@ -22,6 +22,10 @@
   - types 类型定义文件更改
   - wip 开发中
 
+
+## 2023年2月1日10:21:13
+  - chore(all): 引入模拟数据 mockjs
+  - feat(@willy/utils): 配置通用的 http 请求
 
 ## 2023年1月24日19:53:50
   - ci(@willy/utils): 创建项目的通用工具包

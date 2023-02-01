@@ -12,14 +12,15 @@
     "extends": "react-app"
   },
   "scripts": {
-    "serve": "vite",
-    "build": "tsc && vite build",
+    "serve": "cross-env NODE_ENV=development vite",
+    "build": "tsc && cross-env NODE_ENV=production vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
+    "@willy/utils": "workspace:^1.0.0",
     "antd": "^5.1.4",
     "mobx": "^6.7.0",
     "mobx-react-lite": "^3.4.0",

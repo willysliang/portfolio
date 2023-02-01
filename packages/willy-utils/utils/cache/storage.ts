@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-12 18:11:01
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-24 19:50:39
+ * @ Modified time: 2023-01-24 20:53:15
  * @ Description: 有效时长的缓存类
  * （包含 localStorage、sessionstorage、cookie）
  */
@@ -20,11 +20,15 @@ export const createStorage = ({ prefixKey = '', storage = localStorage } = {}) =
    * 本地缓存类
    * @class Storage
    */
-  const Storage = class {
-    private storage = storage
-    private prefixKey?: string = prefixKey
+  class Storage {
+    storage: any
+    prefixKey: string
+    constructor() {
+      this.storage = storage
+      this.prefixKey = prefixKey
+    }
 
-    private getKey(key: string) {
+    getKey(key: string) {
       return `${this.prefixKey}${key}`.toUpperCase()
     }
 
@@ -129,6 +133,7 @@ export const createStorage = ({ prefixKey = '', storage = localStorage } = {}) =
       }
     }
   }
+
   return new Storage()
 }
 
