@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 10:22:52
+ * @ Modified time: 2023-02-01 17:57:40
  * @ Description: 提交日志
 ---
 
@@ -22,6 +22,11 @@
   - types 类型定义文件更改
   - wip 开发中
 
+
+## 2023年2月1日17:55:44
+  - chore(@willy/lbk): 引入预处理语言 sass 
+  - feat(@willy/lbk): 完善 tsconfig.json 的提示信息
+  - feat(@willy/lbk): 页面路由配置、页面大框基础页面创建
 
 ## 2023年2月1日10:21:13
   - chore(all): 引入模拟数据 mockjs

@@ -1,48 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { getResouceList } from './api/mock'
+/**
+ * @ Author: willysliang
+ * @ Create Time: 2022-12-12 16:47:33
+ * @ Modified by: willysliang
+ * @ Modified time: 2023-02-01 17:46:52
+ * @ Description: 页面大框
+ */
 
-const NotFound = () => {
-  // 社区资源
-  const [communityList, setCommunityList] = useState([])
-  // 学习社区资源
-  const [studyCommunityList, setStudyCommunityList] = useState([])
-
-  useEffect(() => {
-    getData()
-  }, [])
-
-  const getData = async () => {
-    try {
-      const res1 = await getResouceList()
-      const { list, studyList } = res1.data
-      setCommunityList(list)
-      setStudyCommunityList(studyList)
-
-      // const res = await request({
-      //   url: 'api/a',
-      //   method: 'get',
-      // })
-      // console.log('a', res)
-    } catch {}
-  }
-
-  return (
-    <div>
-      this is NotFound{JSON.stringify(communityList)}
-      {JSON.stringify(studyCommunityList)}
-    </div>
-  )
-}
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { routes, RouteBeforeEach } from '@/router'
+import './assets/styles/index.scss'
+import Tabbar from '@/components/layout/tabbar'
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route>
+          {routes.map((route) => {
+            return (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={
+                  <RouteBeforeEach route={route}>
+                    <route.component />
+                  </RouteBeforeEach>
+                }
+              />
+            )
+          })}
+        </Route>
+      </Routes>
+
+      {/* 导航栏 */}
+      <Tabbar />
     </div>
   )
 }
