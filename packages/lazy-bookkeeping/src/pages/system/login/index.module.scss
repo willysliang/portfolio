@@ -3,9 +3,37 @@
 	height: 100vh;
 	flex-direction: column;
 	box-sizing: border-box;
+	background-color: #fff;
 	overflow: hidden;
 
 	.login-svg {
 		flex: 0;
+	}
+
+	.tabs {
+		box-sizing: border-box;
+		padding: 1rem 0 1rem 2rem;
+		color: #3db374;
+
+		.tab {
+			border-bottom: 0.1rem solid #3db374;
+			font-size: 1.8rem;
+			margin-right: 1.8rem;
+
+			&.active {
+				font-size: 2.8rem;
+			}
+		}
+	}
+
+	.login-form {
+		flex: 1;
+		padding: 1rem;
+		box-sizing: border-box;
+
+		.icon-lable {
+			width: 1.8rem;
+			height: 1.8rem;
+		}
 	}
 }

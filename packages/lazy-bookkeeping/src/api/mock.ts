@@ -2,12 +2,13 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 09:58:16
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 10:12:57
+ * @ Modified time: 2023-02-02 15:41:42
  * @ Description: mockjs 的请求
  */
 import { request } from '@willy/utils'
 
-export const login = async (data) =>
+/** 登录 */
+export const useLogin = async (data) =>
   request(
     {
       url: '/user/login',
@@ -17,7 +18,7 @@ export const login = async (data) =>
     { prefix: 'mock' },
   )
 
-export const logout = () =>
+export const userLogout = () =>
   request(
     {
       url: '/user/logout',

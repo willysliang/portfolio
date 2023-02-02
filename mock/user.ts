@@ -2,14 +2,14 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-27 10:54:26
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-29 11:28:28
+ * @ Modified time: 2023-02-02 15:27:51
  * @ Description: 用户登录和退出登录
  */
 
 const accessTokens = {
-  admin: 'admin-accessToken',
-  editor: 'editor-accessToken',
-  test: 'test-accessToken',
+  admin: 'admin',
+  willy: 'willy',
+  willysliang: 'willysliang',
 }
 
 export default [
@@ -21,7 +21,7 @@ export default [
       const accessToken = accessTokens[username]
       if (!accessToken) {
         return {
-          code: 200,
+          code: 500,
           msg: '帐户或密码不正确。',
         }
       }
@@ -29,7 +29,7 @@ export default [
         code: 200,
         msg: 'success',
         data: {
-          accessToken,
+          accessToken: `${accessToken}---token`,
         },
       }
     },
