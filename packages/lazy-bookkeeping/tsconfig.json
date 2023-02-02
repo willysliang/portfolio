@@ -24,7 +24,7 @@
     "resolveJsonModule": true, // 可导入JSON
     "paths": {
       "@/*": ["./src/*"],
-      "#/*": ["./types/*"],
+      "#/*": ["./src/types/*"],
       "@comp/*": ["./src/components/*"],
       "@view/*": ["./src/views/*"],
       "@type/*": ["./src/types/*"],

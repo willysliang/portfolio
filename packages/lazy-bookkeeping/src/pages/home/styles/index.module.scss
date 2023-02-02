@@ -1,0 +1,79 @@
+.home-pages {
+	background-color: #EDEDED;
+	box-sizing: border-box;
+	padding-top: 6rem;
+
+	.header {
+		z-index: 100;
+		color: #fff;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 6rem;
+		background-color: $color-theme;
+		box-sizing: border-box;
+		padding: 1.8rem .8rem 0;
+		font-size: 1rem;
+
+		.bottom {
+			display: flex;
+			margin: 1.2rem 0 0 .8rem;
+			font-size: .9rem;
+
+			.left {
+				margin-right: 1rem;
+
+				.time {
+					margin-right: .3rem;
+				}
+			}
+
+			.right {
+				flex: 1;
+				display: flex;
+
+				.income {
+					margin-left: 1rem;
+				}
+			}
+		}
+
+		.top{
+			display: inline;
+			background-color: #45b370;
+			border-radius: .5rem;
+			box-sizing: border-box;
+			padding: .7rem;
+		}
+	}
+
+	.list {
+		height: calc(100vh - 120px);
+		font-size: 12px;
+		padding: 8px;
+		overflow-y: scroll;
+	}
+
+	.add {
+		position: fixed;
+		font-size: 14px;
+		font-weight: bold;
+		bottom: 100px;
+		right: 30px;
+		z-index: 1000;
+		border-radius: 50px;
+		padding: 10px;
+		box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+		background-color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1PX solid #e9e9e9;
+		color: $color-theme;
+
+		svg {
+			width: 18px;
+			height: 18px;
+		}
+	}
+}

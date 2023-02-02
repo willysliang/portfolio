@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-12 16:47:33
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 14:06:58
+ * @ Modified time: 2023-02-02 16:30:09
  * @ Description: 项目配置
  */
 
@@ -49,6 +49,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@api': path.resolve(__dirname, './src/api'),
+      '#': path.resolve(__dirname, './src/types'),
     },
   },
   server: {
