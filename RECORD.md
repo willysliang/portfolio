@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-02 15:56:57
+ * @ Modified time: 2023-02-02 15:57:56
  * @ Description: 提交日志
 ---
 
@@ -27,7 +27,7 @@
 ## 2023年2月2日13:41:25、2023年2月2日15:56:02
   - chore(@willy/lbk): 引入 classnames
   - feat(@willy/lbk -> system/login): 登录 & 注册功能实现
-  - 
+  - feat(@willy/lbk -> personal): 个人中心初步实现
 
 ## 2023年2月1日17:55:44、2023年2月1日18:30:58
   - chore(@willy/lbk): 引入预处理语言 sass 
