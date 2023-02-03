@@ -1,4 +1,4 @@
-import { Bill, OneDayBills } from './global'
+import { Bill, ITagType, OneDayBills } from './global'
 
 export interface LoginDto {
   username: string
@@ -16,8 +16,8 @@ export interface pageInfo {
 }
 
 export interface ListBillDto {
-  type?: 1 | 2
-  tag_id?: string
+  type?: ITagType
+  tag_id?: string | number
   date: string
   pageInfo: pageInfo
 }
@@ -30,21 +30,21 @@ export interface ListBillBo {
 }
 
 export interface Tag {
-  id: string
-  type?: 1 | 2
+  id: string | number
+  type?: ITagType
   name?: string
   user_id?: string
   icon?: string | undefined
 }
 
 export interface ListTagDto {
-  type?: 1 | 2
+  type?: ITagType
 }
 
 export type ListTagBo = Tag[]
 
 export interface CreateBillDto {
-  type: 1 | 2
+  type: ITagType
   amount: number
   tag_id: string
   date: string
@@ -54,7 +54,7 @@ export interface CreateBillDto {
 export type UpdateBillDto = { id: string } & CreateBillDto
 
 export type MakeupBillDto = {
-  type: 1 | 2
+  type: ITagType
   date: string
 }
 
@@ -66,7 +66,7 @@ export type MakeupBillBo = {
 }
 
 export interface RankBillDto {
-  type: 1 | 2
+  type: ITagType
   tag_id?: string
   orderBy: 'amount' | 'date'
   date: string

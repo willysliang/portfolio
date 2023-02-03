@@ -1,6 +1,8 @@
+export type ITagType = 1 | 2 | 3
+
 export interface Bill {
   id: string
-  type: 1 | 2
+  type: ITagType
   amount: string
   tag_id: string
   tag_name: string

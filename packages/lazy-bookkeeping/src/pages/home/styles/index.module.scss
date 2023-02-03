@@ -9,7 +9,7 @@
 		position: fixed;
 		top: 0;
 		width: 100%;
-		height: 6rem;
+		min-height: 6rem;
 		background-color: $color-theme;
 		box-sizing: border-box;
 		padding: 1.8rem .8rem 0;
@@ -39,11 +39,22 @@
 		}
 
 		.top{
-			display: inline;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
 			background-color: #45b370;
 			border-radius: .5rem;
 			box-sizing: border-box;
 			padding: .7rem;
+			width: 10rem;
+
+			.tag-name {
+				flex: 1;
+				white-space: nowrap;	// 文本不换行，只显示一行文字
+				overflow: hidden;	// 超出内容框的隐藏
+				text-overflow: ellipsis;	// 用省略号显示超出的部分
+			}
 		}
 	}
 
