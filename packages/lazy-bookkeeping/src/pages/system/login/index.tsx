@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 15:38:57
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-02 15:30:57
+ * @ Modified time: 2023-02-06 10:47:17
  * @ Description: login 登录页
  */
 import React, { useState } from 'react'
@@ -34,7 +34,7 @@ export default function Login() {
   const [form] = Form.useForm()
 
   /** 注册 or 登录方式切换 */
-  const [type, setType] = useState('login')
+  const [type, setType] = useState<'login' | 'register'>('login')
   const trigerType = (newType) => {
     form.setFields([
       { name: 'username', value: '', errors: undefined },

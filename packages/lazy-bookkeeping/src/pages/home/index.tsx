@@ -3,7 +3,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 14:02:08
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-03 17:43:09
+ * @ Modified time: 2023-02-06 10:15:07
  * @ Description: 首页
  */
 
@@ -14,13 +14,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import {
-  Divider,
-  DotLoading,
-  Empty,
-  InfiniteScroll,
-  PullToRefresh,
-} from 'antd-mobile'
+import { Divider, DotLoading, Empty, PullToRefresh } from 'antd-mobile'
 import { PullStatus } from 'antd-mobile/es/components/pull-to-refresh'
 import { AppstoreOutline, DownFill } from 'antd-mobile-icons'
 import { ListBillDto, Tag } from '#/api'
@@ -82,9 +76,9 @@ export default function Home() {
     } else {
       setOneDayBills(oneDayBills.concat(list))
     }
-    // setTotalPage(total_page)
-    // setIncome(total_income)
-    // setExpense(total_expense)
+    setTotalPage(total_page)
+    setIncome(total_income)
+    setExpense(total_expense)
   }
 
   /** 下拉刷新 */
@@ -96,18 +90,11 @@ export default function Home() {
     getBillList()
   }
 
-  /** 上拉加载更多 */
-  const loadMore = async () => {
-    if (page < totalPage) {
-      setPage(page + 1)
-    }
-  }
-
   // 筛选类型
   const onTagSelect = async (item: Tag) => {
-    await setPage(1)
-    await setCurrentSelect(item)
-    await getBillList()
+    setPage(() => 1)
+    setCurrentSelect(item)
+    getBillList()
   }
 
   // 筛选时间
@@ -171,7 +158,6 @@ export default function Home() {
                 <BillItem oneDayBills={item} key={index} />
               ))}
             </HomeContext.Provider>
-            <InfiniteScroll loadMore={loadMore} hasMore={page < totalPage} />
           </PullToRefresh>
         ) : (
           <Empty description="暂无数据" />
