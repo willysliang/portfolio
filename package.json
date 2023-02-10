@@ -17,6 +17,7 @@
     "format": "prettier --w src/**/*.{ts,tsx,css,less,scss,js} src/*.{js,ts,tsx,css,less,scss}",
     "serve:lbk": "pnpm -F \"@willy/lbk\" serve",
     "build:lbk": "pnpm -F \"@willy/lbk\" build",
+    "server": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
@@ -41,8 +42,10 @@
   },
   "dependencies": {
     "axios": "^1.2.3",
+    "fs-extra": "^11.1.0",
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
+    "multiparty": "^4.2.3",
     "node-sass": "^8.0.0",
     "sass-loader": "^13.2.0"
   },
