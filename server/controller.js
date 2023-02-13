@@ -4,7 +4,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-10 16:09:10
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-10 16:34:29
+ * @ Modified time: 2023-02-13 15:30:24
  * @ Description: controller 控制器
  */
 
@@ -77,30 +77,47 @@ const mergeFileChunk = async (filePath, fileHash, size) => {
 
 module.exports = class {
   // 合并切片
-  // merge chunks
   async handleMerge(req, res) {
-    const data = await resolvePost(req)
-    const { fileHash, filename, size } = data
-    const ext = extractExt(filename)
-    const filePath = path.resolve(UPLOAD_DIR, `${fileHash}${ext}`)
-    await mergeFileChunk(filePath, fileHash, size)
-    res.end(
-      JSON.stringify({
-        code: 0,
-        message: 'file merged success',
-      }),
-    )
+    try {
+      const data = await resolvePost(req)
+      const { fileHash, fileName, size } = data
+      const ext = extractExt(fileName)
+      const filePath = path.resolve(UPLOAD_DIR, `${fileHash}${ext}`)
+      await mergeFileChunk(filePath, fileHash, size)
+      res.end(
+        JSON.stringify({
+          code: 200,
+          message: 'file merged success',
+        }),
+      )
+    } catch {
+      res.end(
+        JSON.stringify({
+          code: 0,
+          message: 'file merged error',
+        }),
+      )
+    }
   }
 
   // 删除所有文件
   async deleteFiles(req, res) {
-    await fse.remove(path.resolve(UPLOAD_DIR))
-    res.end(
-      JSON.stringify({
-        code: 0,
-        message: 'file delete success',
-      }),
-    )
+    try {
+      await fse.remove(path.resolve(UPLOAD_DIR))
+      res.end(
+        JSON.stringify({
+          code: 200,
+          message: 'file delete success',
+        }),
+      )
+    } catch {
+      res.end(
+        JSON.stringify({
+          code: 0,
+          message: 'file delete error',
+        }),
+      )
+    }
   }
 
   // 处理切片
@@ -118,10 +135,10 @@ module.exports = class {
       const [chunk] = files.chunk
       const [hash] = fields.hash
       const [fileHash] = fields.fileHash
-      const [filename] = fields.filename
+      const [fileName] = fields.fileName
       const filePath = path.resolve(
         UPLOAD_DIR,
-        `${fileHash}${extractExt(filename)}`,
+        `${fileHash}${extractExt(fileName)}`,
       )
       const chunkDir = getChunkDir(fileHash)
       const chunkPath = path.resolve(chunkDir, hash)
@@ -152,8 +169,8 @@ module.exports = class {
   // 验证是否已上传/已上传切片下标
   async handleVerifyUpload(req, res) {
     const data = await resolvePost(req)
-    const { fileHash, filename } = data
-    const ext = extractExt(filename)
+    const { fileHash, fileName } = data
+    const ext = extractExt(fileName)
     const filePath = path.resolve(UPLOAD_DIR, `${fileHash}${ext}`)
     if (fse.existsSync(filePath)) {
       res.end(

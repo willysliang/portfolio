@@ -4,7 +4,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-10 16:08:05
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-10 16:33:38
+ * @ Modified time: 2023-02-13 15:27:14
  * @ Description: 服务器入口文件
  */
 
@@ -21,23 +21,20 @@ server.on('request', async (req, res) => {
     res.status = 200
     res.end()
     return
-  }
-  if (req.url === '/verify') {
+  } else if (req.url === '/verify') {
     await controller.handleVerifyUpload(req, res)
     return
-  }
-
-  if (req.url === '/merge') {
+  } else if (req.url === '/merge') {
     await controller.handleMerge(req, res)
     return
-  }
-
-  if (req.url === '/') {
-    await controller.handleFormData(req, res)
-  }
-
-  if (req.url === '/delete') {
+  } else if (req.url === '/delete') {
     await controller.deleteFiles(req, res)
+  } else if (req.url === '/') {
+    await controller.handleFormData(req, res)
+  } else {
+    res.statusCode = 404
+    res.setHeader('content-type', 'text/html;charset=utf-8')
+    res.end('404, 你请求的资源在服务器不存在')
   }
 })
 

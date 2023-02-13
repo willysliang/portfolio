@@ -12,6 +12,8 @@ node_modules
 dist
 dist-ssr
 *.local
+# 缓存
+temp/* 
 
 # Editor directories and files
 .vscode/*

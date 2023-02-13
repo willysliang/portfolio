@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-10 16:35:54
+ * @ Modified time: 2023-02-13 15:29:30
  * @ Description: 提交日志
 ---
 
@@ -21,7 +21,12 @@
   - ci 持续集成
   - types 类型定义文件更改
   - wip 开发中
+  - bug 已知错误但未修复
 
+
+## 2023年2月13日15:27:24
+  - fix(server): 修复后端服务器报错bug
+  - bug(server): 1. 当中断请求时无法做到自动重启应用，仍需手动重启
 
 ## 2023年2月10日16:34:50
   - chore(-w): 引入文件解析插件（pnpm i -w  multiparty fs-extra）
