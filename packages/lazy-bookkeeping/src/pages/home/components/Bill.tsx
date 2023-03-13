@@ -1,12 +1,26 @@
-import {Dialog, Divider, SwipeAction, Toast} from 'antd-mobile'
-import {Action} from 'antd-mobile/es/components/swipe-action'
-import {Bill as BillType} from '#/global'
-// import SvgIcon from '@/components/svgIcon'
+/**
+ * @ Author: willysliang
+ * @ Create Time: 2023-02-03 16:41:21
+ * @ Modified by: willysliang
+ * @ Modified time: 2023-03-13 18:03:06
+ * @ Description: 账单 Bill
+ */
+
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Dialog, Divider, SwipeAction, Toast } from 'antd-mobile'
+import { Action } from 'antd-mobile/es/components/swipe-action'
+import { AntOutline } from 'antd-mobile-icons'
+import { HomeContext } from '../index'
+import { Bill as BillType } from '#/global'
+import { deleteBill } from '@/api/bill'
 import dayjs from 'dayjs'
 import s from '../styles/Bill.module.scss'
-import React, {useContext} from 'react'
-import {HomeContext} from '../index'
-import {useNavigate} from 'react-router-dom'
+
+interface Props {
+  bill: BillType
+}
+
 const rightActions: Action[] = [
   {
     key: 'changeType',
@@ -20,28 +34,21 @@ const rightActions: Action[] = [
   },
 ]
 
-const typeColor = (type: number) => {
-  return type === 1 ? '#35AA62' : '#EBAA2D'
-}
-interface Props {
-  bill: BillType
-}
-export default function Bill({bill}: Props) {
+const typeColor = (type: number) => (type === 1 ? '#35AA62' : '#EBAA2D')
+
+export default function Bill({ bill }: Props) {
   const homeContext = useContext(HomeContext)
   const navigate = useNavigate()
-  /**
-   *
-   * 侧滑动作
-   * @param action
-   * @param e
-   */
+
+  /** 侧滑动作 */
   const onAction = async (action: Action) => {
     if (action.key === 'delete') {
-      console.log('delete')
       Dialog.confirm({
         content: '删除后无法恢复, 是否删除?',
         onConfirm: async () => {
-          // await deleteBill(bill.id)
+          try {
+            await deleteBill(bill.id)
+          } catch {}
           homeContext.refresh()
           Toast.show({
             content: '删除成功',
@@ -60,18 +67,14 @@ export default function Bill({bill}: Props) {
   return (
     <SwipeAction key={bill.id} rightActions={rightActions} onAction={onAction}>
       <div className={s.bill} onClick={() => goDetail(bill.id)}>
-        {/* <SvgIcon
-          icon={bill.tag_icon}
-          color={typeColor(bill.type)}
-          size={30}
-        ></SvgIcon> */}
+      <AntOutline color='#76c6b8' />
         <div className={s.right}>
           <div className={s.top}>
             <span>{bill.tag_name}</span>
             {bill.type === 1 ? (
               <span>-{Number(bill.amount).toFixed(2)}</span>
             ) : (
-              <span style={{color: typeColor(bill.type)}}>
+              <span style={{ color: typeColor(bill.type) }}>
                 +{Number(bill.amount).toFixed(2)}
               </span>
             )}
@@ -80,7 +83,7 @@ export default function Bill({bill}: Props) {
             <span className={s.time}>{dayjs(bill.date).format('hh:ss')}</span>
             {bill.remark ? (
               <>
-                <Divider direction='vertical' />
+                <Divider direction="vertical" />
                 <span className={s.remark}>{bill.remark}</span>
               </>
             ) : null}

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-08 14:06:35
+ * @ Modified time: 2023-03-13 18:17:57
  * @ Description: 提交日志
 ---
 
@@ -23,6 +23,10 @@
   - wip 开发中
   - bug 已知错误但未修复
 
+
+
+## 2023年3月13日18:17:34
+  - feat(@willy/lbk): 首页账单初始完成
 
 ## 2023年3月8日13:46:32
   - feat(NeteaseCloudMusicApi): 网易云后端接口服务

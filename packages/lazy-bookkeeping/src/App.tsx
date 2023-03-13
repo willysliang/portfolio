@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-12 16:47:33
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 17:46:52
+ * @ Modified time: 2023-03-13 15:37:18
  * @ Description: 页面大框
  */
 
@@ -16,21 +16,19 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route>
-          {routes.map((route) => {
-            return (
-              <Route
-                key={route.path}
-                path={route.path}
-                element={
-                  <RouteBeforeEach route={route}>
-                    <route.component />
-                  </RouteBeforeEach>
-                }
-              />
-            )
-          })}
-        </Route>
+        {routes.map((route) => {
+          return (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={
+                <RouteBeforeEach route={route}>
+                  <route.component />
+                </RouteBeforeEach>
+              }
+            />
+          )
+        })}
       </Routes>
 
       {/* 导航栏 */}

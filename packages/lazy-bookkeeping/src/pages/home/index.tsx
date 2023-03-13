@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 14:02:08
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-06 10:15:07
+ * @ Modified time: 2023-03-13 18:17:24
  * @ Description: 首页
  */
 
@@ -14,14 +13,20 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { Divider, DotLoading, Empty, PullToRefresh } from 'antd-mobile'
+import {
+  Divider,
+  DotLoading,
+  Empty,
+  InfiniteScroll,
+  PullToRefresh,
+} from 'antd-mobile'
 import { PullStatus } from 'antd-mobile/es/components/pull-to-refresh'
-import { AppstoreOutline, DownFill } from 'antd-mobile-icons'
+import { AppstoreOutline, DownFill, EditSOutline } from 'antd-mobile-icons'
 import { ListBillDto, Tag } from '#/api'
 import { OneDayBills } from '#/global'
 import TagPopup, { TagPopupExpose } from './components/TagPopup'
 import DatePopup, { DatePopupExpose } from './components/DatePopup'
-// import { AddBillPopupExpose } from './components/AddBillPopupExpose'
+import AddBillPopup, { AddBillPopupExpose } from './components/AddBillPopup'
 import BillItem from './components/BillItem'
 import dayjs from 'dayjs'
 import { fetchBillList } from '@/api/bill'
@@ -48,7 +53,7 @@ const dateFormate = 'YYYY-MM'
 export default function Home() {
   const tagPopupRef = useRef<TagPopupExpose>()
   const datePopupRef = useRef<DatePopupExpose>()
-  // const addBillPopupRef = useRef<AddBillPopupExpose>()
+  const addBillPopupRef = useRef<AddBillPopupExpose>()
 
   const [expense, setExpense] = useState(0) // 总支出
   const [income, setIncome] = useState(0) // 总收入
@@ -81,13 +86,25 @@ export default function Home() {
     setExpense(total_expense)
   }
 
+  /* useEffect(() => {
+    getBillList()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, currentSelect, date]) */
+
   /** 下拉刷新 */
   const refresh = async () => {
-    console.log('refresh')
     if (page !== 1) {
       setPage(1)
     }
     getBillList()
+  }
+
+  /** 加载更多 */
+  const loadMore = async () => {
+    if (page < totalPage) {
+      setPage(page + 1)
+      getBillList()
+    }
   }
 
   // 筛选类型
@@ -158,10 +175,21 @@ export default function Home() {
                 <BillItem oneDayBills={item} key={index} />
               ))}
             </HomeContext.Provider>
+            <InfiniteScroll loadMore={loadMore} hasMore={page < totalPage} />
           </PullToRefresh>
         ) : (
           <Empty description="暂无数据" />
         )}
+      </div>
+
+      <div
+        className={s.add}
+        onClick={() => {
+          addBillPopupRef.current?.show()
+        }}
+      >
+        <EditSOutline />
+        <span style={{ marginLeft: '.2rem' }}>记一笔</span>
       </div>
 
       <TagPopup
@@ -171,6 +199,11 @@ export default function Home() {
       <DatePopup
         ref={datePopupRef as ForwardedRef<DatePopupExpose>}
         onSelect={onDateSelect}
+      />
+
+      <AddBillPopup
+        ref={addBillPopupRef as ForwardedRef<AddBillPopupExpose>}
+        refresh={refresh}
       />
     </div>
   )

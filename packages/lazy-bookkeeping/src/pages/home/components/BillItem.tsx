@@ -2,19 +2,18 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 16:07:32
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-03 16:42:31
+ * @ Modified time: 2023-03-13 18:11:08
  * @ Description: BillItem 单个账单数据
  */
 
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+import Bill from './Bill'
 import dayjs from 'dayjs'
 import updateLocale from 'dayjs/plugin/updateLocale'
 import isYesterday from 'dayjs/plugin/isYesterday'
 import isToday from 'dayjs/plugin/isToday'
-import {OneDayBills} from '#/global'
-import Bill from './Bill'
+import { OneDayBills } from '#/global'
 import s from '../styles/BillItem.module.scss'
-
 
 dayjs.extend(updateLocale)
 dayjs.extend(isToday)
@@ -32,7 +31,7 @@ dayjs.updateLocale('en', {
 })
 
 export default function BillItem({
-  oneDayBills: {date, bills},
+  oneDayBills: { date, bills },
 }: {
   oneDayBills: OneDayBills
 }) {

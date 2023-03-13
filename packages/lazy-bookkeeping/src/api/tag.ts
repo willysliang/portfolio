@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 10:32:13
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-03 10:46:04
+ * @ Modified time: 2023-03-13 17:52:19
  * @ Description: 记账标签
  */
 
-import { ListBillDto, ListTagBo, Tag } from '#/api'
 import { request } from '@willy/utils'
+import type { ListBillDto, ListTagBo, Tag } from '#/api'
 
 /** 标签列表 */
 export const fetchTagList = async (data?: ListBillDto): Promise<ListTagBo> => {

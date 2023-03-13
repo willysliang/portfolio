@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 16:32:19
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-03 17:15:12
+ * @ Modified time: 2023-03-13 18:04:11
  * @ Description: bill 账单
  */
 
@@ -15,7 +15,7 @@ const billList = [
         type: 1,
         amount: 1,
         tag_id: 1,
-        tag_name: '1',
+        tag_name: '收入',
         tag_icon: '1',
         user_id: 'string',
         remark: 'string',
@@ -36,9 +36,9 @@ export default [
         code: 200,
         msg: 'success',
         data: {
-          total_expense: 101,
-          total_income: 102,
-          total_page: 103,
+          total_expense: 7,
+          total_income: 6,
+          total_page: 5,
           list: billList,
         },
       }

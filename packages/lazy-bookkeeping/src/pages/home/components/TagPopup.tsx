@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-02 16:34:28
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-03 16:19:12
+ * @ Modified time: 2023-03-13 18:10:58
  * @ Description: 账单类型选择弹层
  */
 
@@ -11,13 +11,12 @@ import React, {
   forwardRef,
   Fragment,
   MutableRefObject,
-  useEffect,
   useState,
 } from 'react'
 import { Popup } from 'antd-mobile'
 import { CloseOutline } from 'antd-mobile-icons'
 import { Tag } from '#/api'
-import { fetchTagList } from '@/api/tag'
+import { useTag } from '../hooks/useTag'
 import cx from 'classnames'
 import s from '../styles/TagPopup.module.scss'
 
@@ -25,37 +24,6 @@ import s from '../styles/TagPopup.module.scss'
 export type TagPopupExpose = {
   show: () => void
   close: () => void
-}
-
-/** 标签 hooks */
-export function useTag(fetch = false) {
-  interface IWraplist {
-    title: string
-    list: Tag[]
-  }
-
-  // 标签列表 & 数据
-  const [wraplist, setWraplist] = useState<IWraplist[]>([])
-
-  useEffect(() => {
-    (async () => {
-      if (fetch) {
-        try {
-          const data = await fetchTagList()
-          const expense = data.filter((i) => i.type === 1) // 支出类型标签
-          const income = data.filter((i) => i.type === 2) // 收入类型标签
-          const other = data.filter((i) => i.type !== 1 && i.type !== 2) // 其他类型标签
-          setWraplist([
-            { title: '支出', list: expense },
-            { title: '收入', list: income },
-            { title: '其他', list: other },
-          ])
-        } catch {}
-      }
-    })()
-  }, [fetch])
-
-  return wraplist
 }
 
 interface Props {
@@ -66,7 +34,7 @@ const TagPopup = forwardRef(
   ({ onSelect }: Props, ref: ForwardedRef<TagPopupExpose>) => {
     const [show, setShow] = useState(false) // 控制显示隐藏
     const [active, setActive] = useState<string | number>('all')
-    const wraplist = useTag(show)
+    const { wraplist } = useTag(show)
 
     const choseType = (item: Tag | { id: 'all' }) => {
       setActive(item.id)
