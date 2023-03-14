@@ -2,30 +2,9 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 16:32:19
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-13 18:04:11
+ * @ Modified time: 2023-03-14 11:47:34
  * @ Description: bill 账单
  */
-
-const billList = [
-  {
-    date: '2023-02',
-    bills: [
-      {
-        id: 1,
-        type: 1,
-        amount: 1,
-        tag_id: 1,
-        tag_name: '收入',
-        tag_icon: '1',
-        user_id: 'string',
-        remark: 'string',
-        date: '2023-02-01',
-        updated_time: '2023-02-02',
-        created_time: '2023-02-03',
-      },
-    ],
-  },
-]
 
 export default [
   {
@@ -39,7 +18,49 @@ export default [
           total_expense: 7,
           total_income: 6,
           total_page: 5,
-          list: billList,
+          'list|10-30': [
+            {
+              date: '@date(yyyy-MM-dd)',
+              'bills|10-30': [
+                {
+                  id: '@id()',
+                  type: '@integer(1, 3)',
+                  amount: 1,
+                  tag_id: 1,
+                  tag_name: '@cname()',
+                  tag_icon: '1',
+                  user_id: 'string',
+                  remark: 'string',
+                  date: '@date(yyyy-MM-dd hh:mm:ss)',
+                  updated_time: '@date(yyyy-MM-dd hh:mm:ss)',
+                  created_time: '@datetime',
+                },
+              ],
+            },
+          ],
+        },
+      }
+    },
+  },
+  {
+    url: RegExp(`/bill/` + '.*'),
+    method: 'get',
+    response() {
+      return {
+        code: 200,
+        msg: 'success',
+        data: {
+          id: '@id()',
+          type: '@integer(1, 3)',
+          amount: 1,
+          tag_id: 1,
+          tag_name: '@cname()',
+          tag_icon: '1',
+          user_id: 'string',
+          remark: 'string',
+          date: '@date(yyyy-MM-dd hh:mm:ss)',
+          updated_time: '@date(yyyy-MM-dd hh:mm:ss)',
+          created_time: '@datetime',
         },
       }
     },

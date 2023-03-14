@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 14:02:08
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-13 18:17:24
+ * @ Modified time: 2023-03-14 10:20:15
  * @ Description: 首页
  */
 
@@ -12,6 +12,7 @@ import React, {
   ReactNode,
   useRef,
   useState,
+  useEffect,
 } from 'react'
 import {
   Divider,
@@ -86,10 +87,29 @@ export default function Home() {
     setExpense(total_expense)
   }
 
-  /* useEffect(() => {
-    getBillList()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, currentSelect, date]) */
+  useEffect(() => {
+    (async () => {
+      const params: ListBillDto = {
+        date,
+        pageInfo: { page, page_size: 10 },
+      }
+      if (currentSelect.id !== 'all') {
+        params.tag_id = currentSelect.id
+      }
+
+      const { list, total_page, total_expense, total_income } =
+        await fetchBillList(params)
+      if (page === 1) {
+        setOneDayBills(list)
+      } else {
+        setOneDayBills(oneDayBills.concat(list))
+      }
+      setTotalPage(total_page)
+      setIncome(total_income)
+      setExpense(total_expense)
+    })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   /** 下拉刷新 */
   const refresh = async () => {

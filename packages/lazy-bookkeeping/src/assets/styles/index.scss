@@ -10,13 +10,14 @@ body {
 	overflow: hidden;
 	background-color: $color-background;
 	display: flex;
+	flex-direction: column;
 }
 
 .tabbar {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height: 4.5rem;
+	height: 4rem;
 	background-color: white;
 	display: flex;
 	flex-direction: row;

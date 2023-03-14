@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 10:32:13
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-13 17:52:19
+ * @ Modified time: 2023-03-14 11:47:04
  * @ Description: 记账标签
  */
 
@@ -26,7 +26,7 @@ export const fetchTagList = async (data?: ListBillDto): Promise<ListTagBo> => {
 export const getTag = async (id: string): Promise<Tag> => {
   const { data } = await request(
     {
-      url: `/tag/${id}`,
+      url: `/tags/${id}`,
       method: 'get',
     },
     { prefix: 'mock' },

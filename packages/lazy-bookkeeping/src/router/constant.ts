@@ -2,12 +2,21 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:06:20
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 18:07:02
+ * @ Modified time: 2023-03-14 10:13:42
  * @ Description: 路由常量
  */
 
-import { lazy } from 'react'
-import { IRouteItem } from './types'
+import { lazy, ReactNode } from 'react'
+
+/** 路由子集 */
+export interface IRouteItem {
+  path: string
+  meta: {
+    title: string
+    needLogin: boolean
+  }
+  component: ReactNode | React.LazyExoticComponent<() => JSX.Element>
+}
 
 /** 路由表集合 */
 export const Pages: Record<string, IRouteItem> = {
@@ -18,6 +27,14 @@ export const Pages: Record<string, IRouteItem> = {
       needLogin: true,
     },
     component: lazy(() => import('@/pages/home')),
+  },
+  DETAIL: {
+    path: '/detail',
+    meta: {
+      title: '账单详情',
+      needLogin: true,
+    },
+    component: lazy(() => import('@/pages/detail')),
   },
   STATICSTICS: {
     path: '/Statistics',

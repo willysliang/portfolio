@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 16:41:21
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-13 18:03:06
+ * @ Modified time: 2023-03-14 10:14:11
  * @ Description: 账单 Bill
  */
 
@@ -15,6 +15,7 @@ import { HomeContext } from '../index'
 import { Bill as BillType } from '#/global'
 import { deleteBill } from '@/api/bill'
 import dayjs from 'dayjs'
+import { Pages } from '@/router/constant'
 import s from '../styles/Bill.module.scss'
 
 interface Props {
@@ -62,7 +63,7 @@ export default function Bill({ bill }: Props) {
 
   // 跳转账单详情
   const goDetail = (id: string) => {
-    navigate(`/detail/${id}`)
+    navigate(`${Pages.DETAIL.path}?id=${id}`)
   }
   return (
     <SwipeAction key={bill.id} rightActions={rightActions} onAction={onAction}>
