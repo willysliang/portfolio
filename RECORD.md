@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-14 11:58:42
+ * @ Modified time: 2023-03-14 15:33:48
  * @ Description: 提交日志
 ---
 
@@ -24,6 +24,11 @@
   - bug 已知错误但未修复
 
 
+
+
+
+## 2023年3月14日15:33:27
+    - feat(@willy/wechat): 项目初始化构建
 
 ## 2023年3月14日11:58:27
   - feat(@willy/lbk): 账单详情页
