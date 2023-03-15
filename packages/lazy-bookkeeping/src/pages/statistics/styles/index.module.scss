@@ -1,0 +1,69 @@
+.container {
+	height: 100%;
+
+	.header {
+		color: #fff;
+		padding: 2rem 1.5rem 1rem;
+		font-size: 1.2rem;
+
+		&.expense {
+			background-color: $color-theme;
+			color: #90d4ac;
+		}
+
+		&.income {
+			background-color: $color-theme-d;
+			color: #eed06d;
+		}
+
+		.top {
+			display: flex;
+			justify-content: space-between;
+
+			.time {
+				color: #fff;
+
+				span {
+					margin-right: .5rem;
+				}
+			}
+
+			.type {
+				span {
+					padding: .5rem 1rem;
+					border-radius: .5rem;
+					color: #eae1e1;
+					margin-left: 1.5rem;
+				}
+
+				span:nth-of-type(1) {
+					&.active {
+						color: #fff;
+						background-color: #45b370;
+					}
+				}
+
+				span:nth-of-type(2) {
+					&.active{
+						color: #fff;
+						background-color: #e1aa16;
+					}
+				}
+			}
+		}
+
+		.bottom {
+			margin-top: 2rem;
+			color: #fff;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			
+			span:nth-child(2) {
+				margin-left: 1.2rem;
+				font-weight: 900;
+				font-size: 2.8rem;
+			}
+		}
+	}
+}
