@@ -2,19 +2,20 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 16:30:40
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 18:17:29
+ * @ Modified time: 2023-03-15 18:27:49
  * @ Description: 标签导航栏
  */
 import React, { ReactNode, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Badge, TabBar } from 'antd-mobile'
 import {
+  AntOutline,
   AppOutline,
   TravelOutline,
   UnorderedListOutline,
   UserOutline,
 } from 'antd-mobile-icons'
-import { Pages } from '@/router/constant'
+import { Pages, DemoPages } from '@/router/constant'
 
 /** 标签导航数据子集约束 */
 interface ItabItem {
@@ -38,6 +39,11 @@ const tablist: ItabItem[] = [
     icon: (active: boolean) =>
       !active ? <TravelOutline /> : <UnorderedListOutline />,
     badge: '5',
+  },
+  {
+    key: DemoPages.DEMO.path,
+    title: DemoPages.DEMO.meta.title,
+    icon: <AntOutline />,
   },
   {
     key: Pages.PERSONAL.path,

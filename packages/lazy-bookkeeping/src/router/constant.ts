@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:06:20
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-15 17:02:15
+ * @ Modified time: 2023-03-15 18:26:55
  * @ Description: 路由常量
  */
 
@@ -70,6 +70,18 @@ export const Pages: Record<string, IRouteItem> = {
   },
 }
 
+/** 案例路由集合 */
+export const DemoPages: Record<string, IRouteItem> = {
+  DEMO: {
+    path: '/demo',
+    meta: {
+      title: '案例',
+      needLogin: false,
+    },
+    component: lazy(() => import('@/views/index')),
+  },
+}
+
 /** 路由白名单 */
 export const whiteList = [Pages.LOGIN.path]
 
@@ -84,5 +96,13 @@ export const getPageRoutes = () => {
       component,
     })
   }
+
+  /** 插入 demo路由 */
+  pageRoutes.push({
+    path: DemoPages.DEMO.path,
+    meta: DemoPages.DEMO.meta,
+    component: DemoPages.DEMO.component,
+  })
+
   return pageRoutes
 }
