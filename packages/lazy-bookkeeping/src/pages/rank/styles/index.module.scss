@@ -1,0 +1,71 @@
+.container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.header {
+		box-sizing: border-box;
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.top {
+			color: #6c6c6c;
+			font-size: 1.3rem;
+			font-weight: bold;
+		}
+
+		.amount {
+			font-size: 22px;
+			font-weight: bold;
+			vertical-align: top;
+			margin-top: 1rem;
+		}
+	}
+
+	.divider {
+		height: .8rem;
+		width: 100%;
+		background-color: #f9f9f9;
+	}
+
+	.body {
+		box-sizing: border-box;
+		padding: 1rem;
+		flex: 1;
+		overflow-y: auto;
+
+		.filter {
+			font-size: 1rem;
+
+			span {
+				background-color: #f9f9f9;
+				color: #9f9f9f;
+				box-sizing: border-box;
+				padding: .5rem 1rem;
+				margin-right: .5rem;
+				border-radius: .2rem;
+			}
+
+			&.expense {
+				.active {
+					background-color: #e6f5ed;
+					color: #35aa62;
+				}
+			}
+
+			&.income{
+				.active {
+					background-color: #fcf7e6;
+					color: #ebaa2d;
+				}
+			}
+		}
+	}
+
+	.list {
+		font-size: 1rem;
+	}
+}

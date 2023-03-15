@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:06:20
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-14 10:13:42
+ * @ Modified time: 2023-03-15 17:02:15
  * @ Description: 路由常量
  */
 
@@ -43,6 +43,14 @@ export const Pages: Record<string, IRouteItem> = {
       needLogin: true,
     },
     component: lazy(() => import('@/pages/statistics')),
+  },
+  RANK: {
+    path: '/Rank',
+    meta: {
+      title: '排行',
+      needLogin: true,
+    },
+    component: lazy(() => import('@/pages/rank')),
   },
   PERSONAL: {
     path: '/personal',

@@ -159,6 +159,7 @@ importers:
       '@storybook/builder-vite': ^0.2.5
       '@storybook/react': ^6.5.14
       '@storybook/testing-library': ^0.0.13
+      '@types/qs': ^6.9.7
       '@types/react': ^18.0.26
       '@types/react-dom': ^18.0.9
       '@typescript-eslint/eslint-plugin': ^5.48.1
@@ -177,6 +178,7 @@ importers:
       mobx: ^6.7.0
       mobx-react-lite: ^3.4.0
       node-sass: ^8.0.0
+      qs: ^6.11.0
       react: ^18.2.0
       react-dom: ^18.2.0
       react-redux: ^8.0.5
@@ -199,6 +201,7 @@ importers:
       echarts: registry.npmmirror.com/echarts/5.4.1
       mobx: registry.npmmirror.com/mobx/6.7.0
       mobx-react-lite: registry.npmmirror.com/mobx-react-lite/3.4.0_jofyzmwkboewm6mjrhi25mngky
+      qs: registry.npmmirror.com/qs/6.11.0
       react: registry.npmmirror.com/react/18.2.0
       react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
       react-redux: registry.npmmirror.com/react-redux/8.0.5_gm3gubmwja4o7q6fr6adx3fpz4
@@ -214,6 +217,7 @@ importers:
       '@storybook/builder-vite': registry.npmmirror.com/@storybook/builder-vite/0.2.7_rufgyrgyhwpvrwn62rfdvgtuee
       '@storybook/react': registry.npmmirror.com/@storybook/react/6.5.15_g2vhc3ufaeqdpnivskqqr7sexq
       '@storybook/testing-library': registry.npmmirror.com/@storybook/testing-library/0.0.13_biqbaboplfbrettd7655fr4n2y
+      '@types/qs': registry.npmmirror.com/@types/qs/6.9.7
       '@types/react': registry.npmmirror.com/@types/react/18.0.26
       '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.10
       '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.48.1_3jon24igvnqaqexgwtxk6nkpse

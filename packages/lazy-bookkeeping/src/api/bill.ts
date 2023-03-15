@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 16:03:58
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-15 16:41:39
+ * @ Modified time: 2023-03-15 17:21:41
  * @ Description: bill 账单
  */
 
@@ -14,6 +14,8 @@ import type {
   UpdateBillDto,
   MakeupBillDto,
   MakeupBillBo,
+  RankBillBo,
+  RankBillDto,
 } from '#/api'
 import { Bill } from '#/global'
 
@@ -104,6 +106,19 @@ export const dailyCompare = async (
   const res = await request(
     {
       url: '/bill/dailyCompare',
+      method: 'post',
+      data,
+    },
+    { prefix: 'mock' },
+  )
+  return res.data
+}
+
+/** 账单排行 */
+export const rankBill = async (data: RankBillDto): Promise<RankBillBo> => {
+  const res = await request(
+    {
+      url: '/bill/rank',
       method: 'post',
       data,
     },
