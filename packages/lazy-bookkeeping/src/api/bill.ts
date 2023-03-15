@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 16:03:58
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-14 10:44:32
+ * @ Modified time: 2023-03-15 16:41:39
  * @ Description: bill 账单
  */
 
@@ -12,6 +12,8 @@ import type {
   ListBillDto,
   CreateBillDto,
   UpdateBillDto,
+  MakeupBillDto,
+  MakeupBillBo,
 } from '#/api'
 import { Bill } from '#/global'
 
@@ -47,7 +49,7 @@ export const createBill = async (data: CreateBillDto) => {
 export const getBill = async (id: string | null): Promise<Bill> => {
   const { data } = await request(
     {
-      url: `/bill/${id}`,
+      url: `/bills/${id}`,
       method: 'get',
     },
     { prefix: 'mock' },
@@ -74,6 +76,36 @@ export const deleteBill = async (id: string) => {
     {
       url: `/bill/${id}`,
       method: 'delete',
+    },
+    { prefix: 'mock' },
+  )
+  return res.data
+}
+
+/** 账单构成 */
+export const makeupBill = async (
+  data: MakeupBillDto,
+): Promise<MakeupBillBo[]> => {
+  const res = await request(
+    {
+      url: '/bill/makeup',
+      method: 'post',
+      data,
+    },
+    { prefix: 'mock' },
+  )
+  return res.data
+}
+
+/** 每日账单 */
+export const dailyCompare = async (
+  data: MakeupBillDto,
+): Promise<{ date: string; total: number }[]> => {
+  const res = await request(
+    {
+      url: '/bill/dailyCompare',
+      method: 'post',
+      data,
     },
     { prefix: 'mock' },
   )

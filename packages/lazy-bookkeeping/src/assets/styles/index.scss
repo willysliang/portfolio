@@ -2,6 +2,25 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 62.5%; // 以10px为基数,此时class为a的标签字体大小为20px
+	::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	/* 滚动条 */
+	::-webkit-scrollbar-thumb {
+		box-sizing: border-box;
+		border-radius: 10px;
+		box-shadow: inset 0 0 5px rgb(0 0 0 / 20%);
+		background: #66cdc4;
+	}
+
+	/* 滚动条框 */
+	::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 5px rgb(0 0 0 / 20%);
+		border-radius: 0;
+		background: rgb(245 241 241);
+		box-sizing: border-box;
+	}
 }
 
 .App {

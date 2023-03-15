@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 16:32:19
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-14 11:47:34
+ * @ Modified time: 2023-03-15 16:53:20
  * @ Description: bill 账单
  */
 
@@ -29,7 +29,7 @@ export default [
                   tag_id: 1,
                   tag_name: '@cname()',
                   tag_icon: '1',
-                  user_id: 'string',
+                  user_id: '@zip()',
                   remark: 'string',
                   date: '@date(yyyy-MM-dd hh:mm:ss)',
                   updated_time: '@date(yyyy-MM-dd hh:mm:ss)',
@@ -43,7 +43,7 @@ export default [
     },
   },
   {
-    url: RegExp(`/bill/` + '.*'),
+    url: RegExp(`/bills/` + '.*'),
     method: 'get',
     response() {
       return {
@@ -56,12 +56,46 @@ export default [
           tag_id: 1,
           tag_name: '@cname()',
           tag_icon: '1',
-          user_id: 'string',
+          user_id: '@zip()',
           remark: 'string',
           date: '@date(yyyy-MM-dd hh:mm:ss)',
           updated_time: '@date(yyyy-MM-dd hh:mm:ss)',
           created_time: '@datetime',
         },
+      }
+    },
+  },
+  {
+    url: `/bill/makeup`,
+    method: 'post',
+    response() {
+      return {
+        code: 200,
+        msg: 'success',
+        'data|10-30': [
+          {
+            tag_id: '@id()',
+            tag_name: '@cname()',
+            tag_icon: '@zip()',
+            total: '@float(10,10000,10,10000)',
+          },
+        ],
+      }
+    },
+  },
+  {
+    url: `/bill/dailyCompare`,
+    method: 'post',
+    response() {
+      return {
+        code: 200,
+        msg: 'success',
+        'data|30': [
+          {
+            date: '@date(yyyy-MM-dd)',
+            total: '@float(10,10000,10,10000)',
+          },
+        ],
       }
     },
   },

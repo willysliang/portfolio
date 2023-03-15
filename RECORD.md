@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-15 15:16:28
+ * @ Modified time: 2023-03-15 16:54:22
  * @ Description: 提交日志
 ---
 
@@ -28,7 +28,9 @@
 
 
 
-## 2023年3月15日15:16:18
+## 2023年3月15日15:16:18、2023年3月15日16:54:21
+  - wi(@willy/lbk): 统计
+  - ci(pnpm i echarts -F @willy/lbk): 引入 echarts 图表
   - feat(@willy/lbk): 统计
 
 ## 2023年3月14日15:33:27
