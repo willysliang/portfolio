@@ -2,28 +2,37 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 15:38:57
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-06 10:47:17
+ * @ Modified time: 2023-03-16 14:59:24
  * @ Description: login 登录页
  */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Form, Image, Input, Toast } from 'antd-mobile'
-import { LockOutline, UserAddOutline } from 'antd-mobile-icons'
+import { Button, Divider, Form, Image, Input, Toast } from 'antd-mobile'
+import {
+  CheckCircleFill,
+  CheckCircleOutline,
+  EyeInvisibleOutline,
+  EyeOutline,
+  LockOutline,
+  UserAddOutline,
+} from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { Storage } from '@willy/utils'
-import { USER_TOKEN } from '@willy/utils/constant'
-import style from './index.module.scss'
-import { loginSVG, signupSVG } from '@/assets/svg'
+import { USER_TOKEN, SAVE_LOGIN } from '@willy/utils/constant'
 import { useLogin } from '@/api/mock'
+import { loginSVG, signupSVG, WxLoginImg } from '@/assets'
+import style from './index.module.scss'
 
 const typelist = {
   login: {
     title: '登录',
+    key: 'login',
     api: useLogin,
     svg: loginSVG,
   },
   register: {
     title: '注册',
+    key: 'register',
     api: useLogin,
     svg: signupSVG,
   },
@@ -34,7 +43,7 @@ export default function Login() {
   const [form] = Form.useForm()
 
   /** 注册 or 登录方式切换 */
-  const [type, setType] = useState<'login' | 'register'>('login')
+  const [type, setType] = useState<'login' | 'register'>(typelist.login.key)
   const trigerType = (newType) => {
     form.setFields([
       { name: 'username', value: '', errors: undefined },
@@ -42,6 +51,30 @@ export default function Login() {
     ])
     setType(newType)
   }
+
+  /** 密码是否可见 */
+  const [visible, setVisible] = useState(false)
+
+  /** 记住密码 */
+  const [savePwd, setSavePwd] = useState(false) // 定义记住密码开关
+  useEffect(() => {
+    if (Storage.get(SAVE_LOGIN, null)) {
+      setSavePwd(true)
+      form.setFields([
+        {
+          name: 'username',
+          value: Storage.get(SAVE_LOGIN).username,
+          errors: undefined,
+        },
+        {
+          name: 'password',
+          value: Storage.get(SAVE_LOGIN).password,
+          errors: undefined,
+        },
+      ])
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   /** 表单提交 */
   const navigate = useNavigate()
@@ -56,7 +89,20 @@ export default function Login() {
     if (res.code === 200) {
       Toast.show({ icon: 'success', content: `${typelist[type].title}成功` })
       if (type === 'login') {
+        // 缓存用户的 token 信息到本地
         Storage.set(USER_TOKEN, res.data.accessToken)
+
+        // 判断是否记住密码，缓存到本地，否则清除已缓存的密码
+        if (savePwd) {
+          Storage.set(SAVE_LOGIN, {
+            username,
+            password,
+          })
+        } else {
+          Storage.set(SAVE_LOGIN, '')
+        }
+
+        // 跳转首页
         navigate('/')
       } else {
         trigerType(type)
@@ -84,17 +130,17 @@ export default function Login() {
       <div className={style.tabs}>
         <span
           className={classNames(style.tab, {
-            [style.active]: type === 'login',
+            [style.active]: type === typelist.login.key,
           })}
-          onClick={() => trigerType('login')}
+          onClick={() => trigerType(typelist.login.key)}
         >
           登录
         </span>
         <span
           className={classNames(style.tab, {
-            [style.active]: type === 'register',
+            [style.active]: type === typelist.register.key,
           })}
-          onClick={trigerType.bind(null, 'register')}
+          onClick={trigerType.bind(null, typelist.register.key)}
         >
           注册
         </span>
@@ -103,7 +149,7 @@ export default function Login() {
       <div className={style['login-form']}>
         <Form
           layout="horizontal"
-          mode="card"
+          mode="default"
           form={form}
           initialValues={{
             username: '',
@@ -111,8 +157,8 @@ export default function Login() {
           }}
           onFinish={onFinish}
           footer={
-            <Button block type="submit" color="success" size="large">
-              提交
+            <Button block type="submit" color="primary" shape="rounded">
+              {type === 'login' ? '登录' : '注册'}
             </Button>
           }
         >
@@ -129,10 +175,64 @@ export default function Login() {
             label={<LockOutline className={style['icon-lable']} />}
             rules={[{ required: true, message: '密码不能为空!' }]}
             help="登录密码"
+            extra={
+              <div className={style.eye}>
+                {!visible ? (
+                  <EyeInvisibleOutline onClick={() => setVisible(true)} />
+                ) : (
+                  <EyeOutline onClick={() => setVisible(false)} />
+                )}
+              </div>
+            }
           >
-            <Input placeholder="请输入密码" type={'password'} />
+            <Input
+              placeholder="请输入密码"
+              clearable
+              type={visible ? 'text' : 'password'}
+            />
+          </Form.Item>
+          <Form.Item>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <span onClick={() => setSavePwd(!savePwd)}>
+                {savePwd ? (
+                  <CheckCircleFill fontSize={16} style={{ color: '#1677ff' }} />
+                ) : (
+                  <CheckCircleOutline fontSize={16} style={{ color: '#999' }} />
+                )}
+                <span style={{ marginLeft: '.5rem' }}>记住密码</span>
+              </span>
+              <span
+                style={{ color: '#1677ff' }}
+                onClick={() => setType(typelist.register.key)}
+              >
+                立即注册~
+              </span>
+            </div>
           </Form.Item>
         </Form>
+
+        <Divider>其它登录方式</Divider>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Image
+            src={WxLoginImg}
+            width={40}
+            height={40}
+            fit="cover"
+            style={{ borderRadius: 20 }}
+          />
+        </div>
       </div>
     </div>
   )

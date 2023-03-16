@@ -2,18 +2,24 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 17:26:18
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-02 15:53:47
+ * @ Modified time: 2023-03-16 13:21:29
  * @ Description: personal 个人中心
  */
 import React from 'react'
 import { Button } from 'antd-mobile'
-import s from './index.module.scss'
+import { useNavigate } from 'react-router-dom'
+import { Storage } from '@willy/utils'
+import { USER_TOKEN } from '@willy/utils/constant'
 import { userLogout } from '@/api/mock'
+import s from './index.module.scss'
 
 export default function PersonalCenter() {
+  const navigate = useNavigate()
   const logout = async () => {
     try {
       await userLogout()
+      Storage.set(USER_TOKEN, null)
+      navigate('/')
     } catch {}
   }
 

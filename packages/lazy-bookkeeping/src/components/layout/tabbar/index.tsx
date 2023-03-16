@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 16:30:40
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-15 18:27:49
+ * @ Modified time: 2023-03-16 14:40:45
  * @ Description: 标签导航栏
  */
 import React, { ReactNode, useEffect, useState } from 'react'
@@ -15,7 +15,7 @@ import {
   UnorderedListOutline,
   UserOutline,
 } from 'antd-mobile-icons'
-import { Pages, DemoPages } from '@/router/constant'
+import { Pages, DemoPages, whiteList } from '@/router/constant'
 
 /** 标签导航数据子集约束 */
 interface ItabItem {
@@ -73,7 +73,7 @@ const Tabbar = () => {
   const { pathname } = useLocation()
   const [isHidden, setIsHidden] = useState<boolean>(false)
   useEffect(() => {
-    if (pathname === Pages.LOGIN.path) {
+    if (whiteList.includes(pathname)) {
       setIsHidden(true)
     } else {
       setIsHidden(false)
