@@ -1,25 +1,88 @@
 /**
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:06:20
- * @ Modified by: willysliang
- * @ Modified time: 2023-03-15 18:26:55
+ * @ Modified by: Your name
+ * @ Modified time: 2023-03-16 18:43:22
  * @ Description: 路由常量
  */
 
 import { lazy, ReactNode } from 'react'
+import { getPageRoutes } from './router.utils'
 
 /** 路由子集 */
 export interface IRouteItem {
   path: string
   meta: {
     title: string
+    icons?: ReactNode
     needLogin: boolean
   }
   component: ReactNode | React.LazyExoticComponent<() => JSX.Element>
+  children?: IRouteItem[]
 }
 
+/** 路由表对象 */
+export type IRouteObj = Record<string, IRouteItem>
+
+/** 案例路由集合 */
+export const DemoPages: IRouteObj = {
+  DEMO: {
+    path: '/demo',
+    meta: {
+      title: '案例',
+      needLogin: false,
+    },
+    component: lazy(() => import('@/views/index')),
+  },
+}
+
+/** personal 子路由表集合 */
+export const PersonalPages: IRouteObj = {
+  FAVORITES: {
+    path: '/favorites',
+    meta: {
+      title: '我的收藏',
+      needLogin: true,
+      icons: <UserContactOutline />,
+    },
+    component: lazy(() => import('@/pages/personal/favorites')),
+  },
+  RENTAL: {
+    path: '/rental',
+    meta: {
+      title: '我的出租',
+      needLogin: true,
+    },
+    component: lazy(() => import('@/pages/personal/rental')),
+  },
+  PUBLISH: {
+    path: '/publish',
+    meta: {
+      title: '发布房源',
+      needLogin: true,
+    },
+    component: lazy(() => import('@/pages/personal/publish')),
+  },
+  USER_INFO: {
+    path: '/userInfo',
+    meta: {
+      title: '个人资料',
+      needLogin: true,
+    },
+    component: lazy(() => import('@/pages/personal/userInfo')),
+  },
+}
+
+/** 获取个人的路由 */
+export const getPersonalPages: IRouteItem[] = getPageRoutes(PersonalPages).map(
+  (item) => ({
+    ...item,
+    path: `/personal${item.path}`,
+  }),
+)
+
 /** 路由表集合 */
-export const Pages: Record<string, IRouteItem> = {
+export const Pages: IRouteObj = {
   HOME: {
     path: '/home',
     meta: {
@@ -59,6 +122,7 @@ export const Pages: Record<string, IRouteItem> = {
       needLogin: true,
     },
     component: lazy(() => import('@/pages/personal')),
+    children: getPersonalPages,
   },
   LOGIN: {
     path: '/login',
@@ -70,39 +134,5 @@ export const Pages: Record<string, IRouteItem> = {
   },
 }
 
-/** 案例路由集合 */
-export const DemoPages: Record<string, IRouteItem> = {
-  DEMO: {
-    path: '/demo',
-    meta: {
-      title: '案例',
-      needLogin: false,
-    },
-    component: lazy(() => import('@/views/index')),
-  },
-}
-
 /** 路由白名单 */
 export const whiteList = [Pages.LOGIN.path]
-
-/** 获取各模块的所有路由 */
-export const getPageRoutes = () => {
-  const pageRoutes: any = []
-  for (const [, value] of Object.entries(Pages)) {
-    const { path, meta, component } = value
-    pageRoutes.push({
-      path,
-      meta,
-      component,
-    })
-  }
-
-  /** 插入 demo路由 */
-  pageRoutes.push({
-    path: DemoPages.DEMO.path,
-    meta: DemoPages.DEMO.meta,
-    component: DemoPages.DEMO.component,
-  })
-
-  return pageRoutes
-}

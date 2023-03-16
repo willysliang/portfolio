@@ -1,0 +1,115 @@
+.container {
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	box-sizing: border-box;
+
+	.userInfo {
+		width: 100%;
+		height: 22rem;
+		position: relative;
+
+		.bg {
+			width: 30rem;
+			height: 30rem;
+			border-radius: 50%;
+			overflow: hidden;
+			position: absolute;
+			top: -15rem;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 1;
+		}
+
+		.user-content {
+			box-shadow: 0 0.1rem 0.5rem #eee;
+			background-color: #fff;
+			border-radius: 0.6rem;
+			width: 25rem;
+			height: 8rem;
+			box-sizing: border-box;
+			padding: .5rem 2rem;
+			position: absolute;
+			top: 9rem;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 2;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+
+			.user-avactor {
+				position: absolute;
+				width: 5rem;
+				height: 5rem;
+				overflow: hidden;
+				box-shadow: 0 1px 1px #999;
+				border-radius: 50%;
+				top: -3rem;
+			}
+
+			.user-font {
+				text-align: center;
+				margin-top: 3rem;
+			}
+		}
+	}
+
+	.user_content {
+		position: absolute;
+		width: 300px;
+		height: 10rem;
+		left: 50%;
+		bottom: 10px;
+		transform: translateX(-50%);
+		border-radius: 4px;
+
+		.user_avater {
+			position: absolute;
+			top: -35px;
+		}
+
+		.adm-button-block {
+			width: 120px;
+			position: absolute;
+			bottom: 10px;
+			font-size: 13px;
+		}
+	}
+
+	// padding: 1rem;
+
+	// background-color: $color-theme;
+
+	.card {
+		background-color: #fff;
+		width: 100%;
+		border-radius: 0.8rem;
+		margin-bottom: 2rem;
+
+		.header {
+			height: 4rem;
+			background-color: #45b370;
+			color: #fff;
+			font-size: 2rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.about {
+			box-sizing: border-box;
+			padding: 1rem;
+
+			p {
+				font-size: 1.6rem;
+			}
+
+			article {
+				font-size: 1rem;
+				margin: 1rem 0;
+			}
+		}
+	}
+}

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 15:38:57
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-16 14:59:24
+ * @ Modified time: 2023-03-16 18:03:24
  * @ Description: login 登录页
  */
 import React, { useEffect, useState } from 'react'
@@ -18,7 +18,7 @@ import {
 } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { Storage } from '@willy/utils'
-import { USER_TOKEN, SAVE_LOGIN } from '@willy/utils/constant'
+import { USER_TOKEN, USER_INFO, SAVE_LOGIN } from '@willy/utils/constant'
 import { useLogin } from '@/api/mock'
 import { loginSVG, signupSVG, WxLoginImg } from '@/assets'
 import style from './index.module.scss'
@@ -89,8 +89,10 @@ export default function Login() {
     if (res.code === 200) {
       Toast.show({ icon: 'success', content: `${typelist[type].title}成功` })
       if (type === 'login') {
+        const { accessToken, nickname, avatar } = res.data
         // 缓存用户的 token 信息到本地
-        Storage.set(USER_TOKEN, res.data.accessToken)
+        Storage.set(USER_TOKEN, accessToken)
+        Storage.set(USER_INFO, { nickname, avatar })
 
         // 判断是否记住密码，缓存到本地，否则清除已缓存的密码
         if (savePwd) {
