@@ -2,18 +2,24 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 17:26:18
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-16 18:18:51
+ * @ Modified time: 2023-03-17 18:46:18
  * @ Description: personal 个人中心
  */
-import React, { ReactNode } from 'react'
+import React, { FC, SVGProps } from 'react'
 import { Button, Dialog, Toast, Image, Grid } from 'antd-mobile'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Outlet } from 'react-router-dom'
 import { Storage } from '@willy/utils'
 import { USER_TOKEN, USER_INFO } from '@willy/utils/constant'
 import { getPersonalPages, Pages } from '@/router/constant'
 import { userLogout } from '@/api/mock'
 import { UserBgImg, avactorImg } from '@/assets'
 import s from './styles/index.module.scss'
+import {
+  AntOutline,
+  MailOpenOutline,
+  MovieOutline,
+  TravelOutline,
+} from 'antd-mobile-icons'
 
 const CUserInfo = (): JSX.Element => {
   const userInfo = Storage.get(USER_INFO, {})
@@ -73,18 +79,18 @@ export default function PersonalCenter() {
   /** 宫格表 */
   interface IGridItem {
     label: string
-    icons: ReactNode
+    icons: FC<SVGProps<SVGSVGElement>>
     path: string
   }
   const gridData: IGridItem[] = [
     ...getPersonalPages.map((item) => ({
       label: item.meta.title,
-      icons: item.meta?.icons || <></>,
+      icons: item.meta?.icons || AntOutline,
       path: item.path,
     })),
-    { label: '看房记录', icons: <></>, path: '' },
-    { label: '成为房主', icons: <></>, path: '' },
-    { label: '联系我们', icons: <></>, path: '' },
+    { label: '看房记录', icons: MovieOutline, path: '' },
+    { label: '成为房主', icons: TravelOutline, path: '' },
+    { label: '联系我们', icons: MailOpenOutline, path: '' },
   ]
 
   const navigate = useNavigate()
@@ -103,17 +109,21 @@ export default function PersonalCenter() {
 
   return (
     <div className={s.container}>
+       <Outlet/>
+
       <CUserInfo />
 
-      <Grid columns={3} gap={20}>
+      <Grid columns={4} gap={20}>
         {gridData.map((item) => (
           <Grid.Item
             key={item.label}
             className=""
             onClick={() => handlerGrid(item.path)}
           >
-            {item.icons}
-            <span className="mg-t-5">{item.label}</span>
+            <div className={s['grid-item']}>
+              <item.icons color="#76c6b8" style={{ fontSize: 32 }} />
+              <span className={s['grid-item-label']}>{item.label}</span>
+            </div>
           </Grid.Item>
         ))}
       </Grid>

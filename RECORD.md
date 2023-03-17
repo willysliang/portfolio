@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-16 19:17:54
+ * @ Modified time: 2023-03-17 18:49:25
  * @ Description: 提交日志
 ---
 
@@ -26,6 +26,9 @@
 
 
 
+
+## 2023年3月17日18:48:41
+  - refactor(@willy/lbk): 重构路由配置(路由拦截、路由转换)
 
 ## 2023年3月16日19:17:32
   - ci(@willy/lbk): 个人中心页

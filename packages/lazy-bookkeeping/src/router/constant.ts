@@ -1,24 +1,31 @@
 /**
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:06:20
- * @ Modified by: Your name
- * @ Modified time: 2023-03-16 18:43:22
+ * @ Modified by: willysliang
+ * @ Modified time: 2023-03-17 18:39:17
  * @ Description: 路由常量
  */
 
-import { lazy, ReactNode } from 'react'
+import { FC, lazy, ReactNode, SVGProps } from 'react'
 import { getPageRoutes } from './router.utils'
+import { AntOutline, HandPayCircleOutline, StarOutline, UserContactOutline } from 'antd-mobile-icons'
 
 /** 路由子集 */
 export interface IRouteItem {
   path: string
-  meta: {
-    title: string
-    icons?: ReactNode
-    needLogin: boolean
-  }
-  component: ReactNode | React.LazyExoticComponent<() => JSX.Element>
+  element: ReactNode | React.LazyExoticComponent<() => JSX.Element> | any
   children?: IRouteItem[]
+  redirect?: string
+  meta: {
+    /** 标题 */
+    title: string
+    /** 是否需要登录 */
+    needLogin?: boolean
+    /** 图标 */
+    icons?: FC<SVGProps<SVGSVGElement>>
+    /** 是否不需要懒加载 */
+    unLazy?: boolean
+  } & Record<string, unknown>
 }
 
 /** 路由表对象 */
@@ -32,7 +39,7 @@ export const DemoPages: IRouteObj = {
       title: '案例',
       needLogin: false,
     },
-    component: lazy(() => import('@/views/index')),
+    element: lazy(() => import('@/views/index')),
   },
 }
 
@@ -43,33 +50,36 @@ export const PersonalPages: IRouteObj = {
     meta: {
       title: '我的收藏',
       needLogin: true,
-      icons: <UserContactOutline />,
+      icons: StarOutline,
     },
-    component: lazy(() => import('@/pages/personal/favorites')),
+    element: lazy(() => import('@/pages/personal/favorites')),
   },
   RENTAL: {
     path: '/rental',
     meta: {
       title: '我的出租',
       needLogin: true,
+      icons: AntOutline,
     },
-    component: lazy(() => import('@/pages/personal/rental')),
+    element: lazy(() => import('@/pages/personal/rental')),
   },
   PUBLISH: {
     path: '/publish',
     meta: {
       title: '发布房源',
       needLogin: true,
+      icons: HandPayCircleOutline,
     },
-    component: lazy(() => import('@/pages/personal/publish')),
+    element: lazy(() => import('@/pages/personal/publish')),
   },
   USER_INFO: {
     path: '/userInfo',
     meta: {
       title: '个人资料',
       needLogin: true,
+      icons: UserContactOutline,
     },
-    component: lazy(() => import('@/pages/personal/userInfo')),
+    element: lazy(() => import('@/pages/personal/userInfo')),
   },
 }
 
@@ -89,7 +99,7 @@ export const Pages: IRouteObj = {
       title: '首页',
       needLogin: true,
     },
-    component: lazy(() => import('@/pages/home')),
+    element: lazy(() => import('@/pages/home')),
   },
   DETAIL: {
     path: '/detail',
@@ -97,7 +107,7 @@ export const Pages: IRouteObj = {
       title: '账单详情',
       needLogin: true,
     },
-    component: lazy(() => import('@/pages/detail')),
+    element: lazy(() => import('@/pages/detail')),
   },
   STATICSTICS: {
     path: '/Statistics',
@@ -105,7 +115,7 @@ export const Pages: IRouteObj = {
       title: '统计',
       needLogin: true,
     },
-    component: lazy(() => import('@/pages/statistics')),
+    element: lazy(() => import('@/pages/statistics')),
   },
   RANK: {
     path: '/Rank',
@@ -113,7 +123,7 @@ export const Pages: IRouteObj = {
       title: '排行',
       needLogin: true,
     },
-    component: lazy(() => import('@/pages/rank')),
+    element: lazy(() => import('@/pages/rank')),
   },
   PERSONAL: {
     path: '/personal',
@@ -121,7 +131,7 @@ export const Pages: IRouteObj = {
       title: '我的',
       needLogin: true,
     },
-    component: lazy(() => import('@/pages/personal')),
+    element: lazy(() => import('@/pages/personal')),
     children: getPersonalPages,
   },
   LOGIN: {
@@ -130,7 +140,7 @@ export const Pages: IRouteObj = {
       title: '登录',
       needLogin: false,
     },
-    component: lazy(() => import('@/pages/system/login')),
+    element: lazy(() => import('@/pages/system/login')),
   },
 }
 
