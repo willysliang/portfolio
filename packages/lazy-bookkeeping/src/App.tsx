@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-12 16:47:33
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 18:44:23
+ * @ Modified time: 2023-03-17 18:54:52
  * @ Description: 页面大框
  */
 
 import React from 'react'
-import { useRoutes } from 'react-router-dom'
+import { Outlet, useRoutes } from 'react-router-dom'
 import Tabbar from '@/components/layout/tabbar'
 import './assets/styles/index.scss'
 import routes from './router/routes'
@@ -35,6 +35,8 @@ function App() {
         })}
       </Routes> */}
       {elements}
+
+      <Outlet/>
 
       {/* 导航栏 */}
       <Tabbar />

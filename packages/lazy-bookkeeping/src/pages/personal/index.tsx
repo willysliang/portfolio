@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 17:26:18
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 18:46:18
+ * @ Modified time: 2023-03-17 18:53:39
  * @ Description: personal 个人中心
  */
 import React, { FC, SVGProps } from 'react'
 import { Button, Dialog, Toast, Image, Grid } from 'antd-mobile'
-import { useNavigate, Outlet } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Storage } from '@willy/utils'
 import { USER_TOKEN, USER_INFO } from '@willy/utils/constant'
 import { getPersonalPages, Pages } from '@/router/constant'
@@ -109,8 +109,6 @@ export default function PersonalCenter() {
 
   return (
     <div className={s.container}>
-       <Outlet/>
-
       <CUserInfo />
 
       <Grid columns={4} gap={20}>

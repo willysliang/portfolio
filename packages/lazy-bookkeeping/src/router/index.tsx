@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:04:57
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 18:42:55
+ * @ Modified time: 2023-03-17 18:59:18
  * @ Description: 路由
  */
 
@@ -21,9 +21,12 @@ export const transformRoutes = (
   routes.forEach((routeObj) => {
     const route = { ...routeObj }
 
+    console.log(route.path)
+
     if (route.redirect) {
       route.component = <Navigate to={route.redirect} replace={true} />
     }
+
     if (route.element) {
       route.component = (
         <RouteBeforeEach route={route}>
