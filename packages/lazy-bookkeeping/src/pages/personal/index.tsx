@@ -2,11 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 17:26:18
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 18:53:39
+ * @ Modified time: 2023-03-21 13:48:01
  * @ Description: personal 个人中心
  */
 import React, { FC, SVGProps } from 'react'
-import { Button, Dialog, Toast, Image, Grid } from 'antd-mobile'
+import { Button, Dialog, Toast, Image, Grid, Card, Collapse } from 'antd-mobile'
 import { useNavigate } from 'react-router-dom'
 import { Storage } from '@willy/utils'
 import { USER_TOKEN, USER_INFO } from '@willy/utils/constant'
@@ -126,23 +126,28 @@ export default function PersonalCenter() {
         ))}
       </Grid>
 
-      <div className={s.card}>
-        <div className={s.header}>项目信息</div>
-        <div className={s.about}>
-          <h2>关于项目</h2>
-          <article>
-            这是一个模仿微信记账小程序的前后端分离全栈项目,共经历了需求分析,表结构设计,api接口设计,技术选型,前端开发,接口联调,生产环境部署上线等流程.
-            模拟了真实项目从无到有的流程.
-          </article>
-          <p>关于技术选型</p>
-          <article>
-            后端: NestJS, PostgreSQL, TypeScript, TypeORM, Docker
-          </article>
-          <article>
-            前端: React(hooks), React Router, Ant Design Mobile, TypeScript,
-            Echarts
-          </article>
-        </div>
+      {/* 项目介绍 */}
+      <div className={s['card']}>
+        <Card
+          headerStyle={{
+            color: '#1677ff',
+          }}
+          bodyStyle={{ color: 'var(--adm-color-success)' }}
+          title="项目信息"
+        >
+          <Collapse accordion>
+            <Collapse.Panel key="1" title="关于项目">
+              这是一个模仿微信记账小程序的前后端分离全栈项目,共经历了需求分析,表结构设计,api接口设计,技术选型,前端开发,接口联调,生产环境部署上线等流程.
+              模拟了真实项目从无到有的流程。
+            </Collapse.Panel>
+            <Collapse.Panel key="2" title="后端技术选型">
+              NestJS, PostgreSQL, TypeScript, TypeORM, Docker
+            </Collapse.Panel>
+            <Collapse.Panel key="3" title="前端技术选型">
+              React(hooks), React Router, Ant Design Mobile, TypeScript, Echarts
+            </Collapse.Panel>
+          </Collapse>
+        </Card>
       </div>
     </div>
   )

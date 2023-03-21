@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:05:37
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 18:47:15
+ * @ Modified time: 2023-03-21 13:36:29
  * @ Description: RouteBeforeEach 路由前置守卫
  */
 
@@ -33,5 +33,12 @@ export default function RouteBeforeEach(props: {
     return <Navigate to={Pages.LOGIN.path} replace />
   }
 
-  return <Suspense fallback={<div></div>}>{props?.children || ''}</Suspense>
+  {
+    /* React.lazy 动态加载页面或者组件，建议配合 Suspense 使用再进行渲染 */
+  }
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      {props?.children || ''}
+    </Suspense>
+  )
 }

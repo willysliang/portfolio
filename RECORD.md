@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 18:49:25
+ * @ Modified time: 2023-03-21 13:48:20
  * @ Description: 提交日志
 ---
 
@@ -26,6 +26,9 @@
 
 
 
+
+## 2023年3月21日13:34:59
+  - feat(@willy/lbk): 个人中心(我的收藏favorites、我的出租houses、个人中心样式调整)
 
 ## 2023年3月17日18:48:41
   - refactor(@willy/lbk): 重构路由配置(路由拦截、路由转换)

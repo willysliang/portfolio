@@ -2,11 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 13:59:56
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 19:03:44
+ * @ Modified time: 2023-03-21 13:25:56
  * @ Description: 路由表
  */
 
-import { Pages, DemoPages, PersonalPages } from './constant'
+import { Pages, DemoPages, PersonalPages, HousePages } from './constant'
 import { getPageRoutes } from './router.utils'
 
 const routes = [
@@ -22,6 +22,7 @@ const routes = [
     element: DemoPages.DEMO.element,
   },
   ...getPageRoutes<any>(PersonalPages, '/personal'),
+  ...getPageRoutes<any>(HousePages),
 ]
 
 export default routes

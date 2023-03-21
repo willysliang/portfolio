@@ -2,14 +2,39 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-16 15:23:46
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-16 15:25:04
+ * @ Modified time: 2023-03-21 13:20:52
  * @ Description: 我的收藏 favorites
  */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { NavBar } from 'antd-mobile'
+import HouseList from '@/components/HouseList'
+import { IHouseListItem } from '#/house'
+import { getFavoritesList } from '@/api/house'
+import s from './index.module.scss'
 
 const Favorites = () => {
-  return <div>adsahjk</div>
+  const navigate = useNavigate()
+  const [list, setList] = useState<IHouseListItem[]>([])
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await getFavoritesList()
+        setList(res)
+      } catch {}
+    })()
+  }, [])
+
+  return (
+    <div className={s.container}>
+      <NavBar onBack={() => navigate(-1)}>我的收藏</NavBar>
+      <div className={s['list-box']}>
+        <HouseList list={list} />
+      </div>
+    </div>
+  )
 }
 
 export default Favorites

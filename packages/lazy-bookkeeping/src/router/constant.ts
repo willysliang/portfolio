@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:06:20
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 19:01:14
+ * @ Modified time: 2023-03-21 11:44:31
  * @ Description: 路由常量
  */
 
@@ -80,6 +80,19 @@ export const PersonalPages: IRouteObj = {
       icons: UserContactOutline,
     },
     element: lazy(() => import('@/pages/personal/userInfo')),
+  },
+}
+
+/** house 路由表 */
+export const HousePages: IRouteObj = {
+  HOUSES: {
+    path: '/houses',
+    meta: {
+      title: '房屋详情',
+      needLogin: true,
+      icons: StarOutline,
+    },
+    element: lazy(() => import('@/pages/personal/favorites')),
   },
 }
 
