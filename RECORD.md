@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-21 13:48:20
+ * @ Modified time: 2023-03-22 16:33:24
  * @ Description: 提交日志
 ---
 
@@ -27,6 +27,11 @@
 
 
 
+## 2023年3月22日10:58:20
+  - ci(pnpm i @icon-park/react -F @willy/lbk)：添加 IconPark 图标库
+  - feat(@wily/lbk): IconPark 图标组件封装
+  - feat(@willy/lbk): publish发布房源(保存/取消操作区、弹出选择器)
+
 ## 2023年3月21日13:34:59
   - feat(@willy/lbk): 个人中心(我的收藏favorites、我的出租houses、个人中心样式调整)
 
@@ -46,8 +51,7 @@
   - wi(@willy/lbk): 统计
   - ci(pnpm i echarts -F @willy/lbk): 引入 echarts 图表
   - feat(@willy/lbk): 统计 
-  - ci(pnpm i @types/qs -D -F @willy/lbk)
-  - ci(pnpm i qs -F @willy/lbk): 路由参数识别
+  - ci(pnpm i qs @types/qs -D -F @willy/lbk): 路由参数识别
   - feat(@willy/lbk): 账单排行 rank
 
 ## 2023年3月14日15:33:27

@@ -9,7 +9,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NavBar } from 'antd-mobile'
-import HouseList from '@/components/HouseList'
+import HouseList from '@/components/house/HouseList'
 import { IHouseListItem } from '#/house'
 import { getFavoritesList } from '@/api/house'
 import s from './index.module.scss'

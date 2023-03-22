@@ -19,6 +19,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@icon-park/react": "^1.4.2",
     "@reduxjs/toolkit": "^1.9.1",
     "@willy/utils": "workspace:^1.0.0",
     "antd": "^5.1.4",

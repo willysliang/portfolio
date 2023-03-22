@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:53:11
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-21 11:53:53
+ * @ Modified time: 2023-03-22 15:49:28
  * @ Description: 房屋约束
  */
 
@@ -15,4 +15,10 @@ export interface IHouseListItem {
   houseImg: string
   tags: Array<string>
   price: number
+}
+
+/** 区域列表子集约束 */
+export interface IAreaCommunityItem {
+  id: string
+  name: string
 }
