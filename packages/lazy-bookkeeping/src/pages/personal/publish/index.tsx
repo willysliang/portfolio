@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Modified by: willysliang
  * @ Modified time: 2023-03-22 10:45:35
- * @ Modified time: 2023-03-23 16:00:03
+ * @ Modified time: 2023-03-23 16:07:36
  * @ Description: 发布房源 Publish
  */
 
@@ -18,10 +18,10 @@ import {
   TextArea,
 } from 'antd-mobile'
 import HousesConfig from '@/components/house/HouseConfig'
-import houseParamsData from '@/constant/house'
 import PublishController from './PublishController'
 import PublishPopup from './PublishPopup'
 import PublishDialog from './PublishDialog'
+import houseParamsData from '@/pages/personal/constant/house'
 import s from '../styles/Publish.module.scss'
 
 const TextMsg = ({ msg }: { msg: string }) => (

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 11:23:21
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 14:02:28
+ * @ Modified time: 2023-03-23 16:32:31
  * @ Description: 个人中心子路由
  */
 
@@ -14,6 +14,7 @@ import {
   StarOutline,
   UserContactOutline,
   SearchOutline,
+  EnvironmentOutline,
 } from 'antd-mobile-icons'
 import { IRouteItem, IRouteObj } from './type'
 import { getPageRoutes } from '../router.utils'
@@ -89,6 +90,15 @@ export const HousePages: IRouteObj = {
       icons: StarOutline,
     },
     element: lazy(() => import('@/pages/personal/favorites')),
+  },
+  MAP: {
+    path: '/maps',
+    meta: {
+      title: '地图',
+      needLogin: true,
+      icons: EnvironmentOutline,
+    },
+    element: lazy(() => import('@/pages/personal/Map')),
   },
 }
 
