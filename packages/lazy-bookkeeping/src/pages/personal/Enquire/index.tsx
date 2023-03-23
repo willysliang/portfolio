@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 11:41:28
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 13:51:05
+ * @ Modified time: 2023-03-23 14:10:10
  * @ Description: 联系咨询模块 Enquire
  */
 
@@ -33,7 +33,7 @@ const Enquire = () => {
 
   return (
     <div className={s.container}>
-      <NavBar onBack={() => navigate(-1)}>我的收藏</NavBar>
+      <NavBar onBack={() => navigate(-1)}>联系咨询</NavBar>
       <div className={s['list-box']}>
         {newsList.map((news) => (
           <div key={news.id} className={s['list-box-item']}>

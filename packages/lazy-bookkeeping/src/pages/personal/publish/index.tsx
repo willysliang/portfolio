@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Modified by: willysliang
  * @ Modified time: 2023-03-22 10:45:35
- * @ Modified time: 2023-03-22 16:04:27
+ * @ Modified time: 2023-03-23 16:00:03
  * @ Description: 发布房源 Publish
  */
 
@@ -22,7 +22,7 @@ import houseParamsData from '@/constant/house'
 import PublishController from './PublishController'
 import PublishPopup from './PublishPopup'
 import PublishDialog from './PublishDialog'
-import s from './styles/index.module.scss'
+import s from '../styles/Publish.module.scss'
 
 const TextMsg = ({ msg }: { msg: string }) => (
   <span style={{ color: '#999' }}>{msg}</span>

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-16 15:23:46
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 11:01:08
+ * @ Modified time: 2023-03-23 16:02:28
  * @ Description: 个人资料 userInfo
  */
 
@@ -12,8 +12,8 @@ import { Button, Dialog, Form, Input, NavBar, Picker, Toast } from 'antd-mobile'
 import { RightOutline } from 'antd-mobile-icons'
 import { Storage } from '@willy/utils'
 import { USER_INFO } from '@willy/utils/constant'
-import s from './index.module.scss'
 import { updateUserInfo } from '@/api/user'
+import s from '../styles/UerInfo.module.scss'
 
 const UserInfo = () => {
   const navigate = useNavigate()

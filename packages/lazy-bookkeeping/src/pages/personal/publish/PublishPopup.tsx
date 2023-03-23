@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-22 13:08:36
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-22 16:18:18
+ * @ Modified time: 2023-03-23 15:59:10
  * @ Description: 发布弹层
  */
 
@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react'
 import { CheckList, Empty, NavBar, Popup, SearchBar } from 'antd-mobile'
 import { getAreaCommunity } from '@/api/house'
 import { IAreaCommunityItem } from '#/house'
-import s from './styles/PublishPopup.module.scss'
+import s from '../styles/PublishPopup.module.scss'
 
 interface IProps {
   /** 弹层显隐 */

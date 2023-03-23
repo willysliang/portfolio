@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-16 15:23:46
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-21 13:20:52
+ * @ Modified time: 2023-03-23 16:00:55
  * @ Description: 我的收藏 favorites
  */
 
@@ -12,7 +12,7 @@ import { NavBar } from 'antd-mobile'
 import HouseList from '@/components/house/HouseList'
 import { IHouseListItem } from '#/house'
 import { getFavoritesList } from '@/api/house'
-import s from './index.module.scss'
+import s from '../styles/Favorites.module.scss'
 
 const Favorites = () => {
   const navigate = useNavigate()

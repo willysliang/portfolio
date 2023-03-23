@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-16 15:23:46
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-21 13:34:26
+ * @ Modified time: 2023-03-23 16:01:28
  * @ Description: 我的出租 rental
  */
 
@@ -12,8 +12,8 @@ import { NavBar } from 'antd-mobile'
 import HouseList from '@/components/house/HouseList'
 import { IHouseListItem } from '#/house'
 import { getHousesList } from '@/api/house'
-import s from './index.module.scss'
 import { Pages, PersonalPages } from '@/router/constant'
+import s from '../styles/Rental.module.scss'
 
 const Rental = () => {
   const navigate = useNavigate()

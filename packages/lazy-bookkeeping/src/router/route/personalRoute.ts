@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 11:23:21
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 11:42:34
+ * @ Modified time: 2023-03-23 14:02:28
  * @ Description: 个人中心子路由
  */
 
@@ -13,6 +13,7 @@ import {
   MailOpenOutline,
   StarOutline,
   UserContactOutline,
+  SearchOutline,
 } from 'antd-mobile-icons'
 import { IRouteItem, IRouteObj } from './type'
 import { getPageRoutes } from '../router.utils'
@@ -66,6 +67,15 @@ export const PersonalPages: IRouteObj = {
       icons: MailOpenOutline,
     },
     element: lazy(() => import('@/pages/personal/Enquire')),
+  },
+  FIND_HOUSE: {
+    path: '/findHouse',
+    meta: {
+      title: '找房',
+      needLogin: true,
+      icons: SearchOutline,
+    },
+    element: lazy(() => import('@/pages/personal/FindHouse')),
   },
 }
 
