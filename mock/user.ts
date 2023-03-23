@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-27 10:54:26
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-16 17:55:13
+ * @ Modified time: 2023-03-23 10:58:01
  * @ Description: 用户登录和退出登录
  */
 
@@ -38,6 +38,16 @@ export default [
   },
   {
     url: '/user/logout',
+    type: 'post',
+    response() {
+      return {
+        code: 200,
+        msg: 'success',
+      }
+    },
+  },
+  {
+    url: '/user/update',
     type: 'post',
     response() {
       return {

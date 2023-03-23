@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-22 16:33:24
+ * @ Modified time: 2023-03-23 11:02:20
  * @ Description: 提交日志
 ---
 
@@ -27,10 +27,13 @@
 
 
 
+## 2023年3月23日11:01:23
+  - feat(@willy/lbk): 用户信息修改模块userInfo
+
 ## 2023年3月22日10:58:20
   - ci(pnpm i @icon-park/react -F @willy/lbk)：添加 IconPark 图标库
   - feat(@wily/lbk): IconPark 图标组件封装
-  - feat(@willy/lbk): publish发布房源(保存/取消操作区、弹出选择器)
+  - feat(@willy/lbk): 发布房源模块publish(保存/取消操作区、弹出选择器)
 
 ## 2023年3月21日13:34:59
   - feat(@willy/lbk): 个人中心(我的收藏favorites、我的出租houses、个人中心样式调整)
