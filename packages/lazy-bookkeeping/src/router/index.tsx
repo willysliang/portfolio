@@ -2,13 +2,13 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:04:57
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-21 10:21:45
+ * @ Modified time: 2023-03-23 11:19:35
  * @ Description: 路由
  */
 
 import React, { ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
-import { IRouteItem } from './constant'
+import { IRouteItem } from './route/type'
 import RouteBeforeEach from './RouteBeforeEach'
 
 /** 路由列表数据转换 */

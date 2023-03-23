@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:05:37
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-21 13:36:29
+ * @ Modified time: 2023-03-23 11:19:55
  * @ Description: RouteBeforeEach 路由前置守卫
  */
 
@@ -10,7 +10,8 @@ import React, { ReactNode, Suspense } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { Storage } from '@willy/utils'
 import { USER_TOKEN } from '@willy/utils/constant'
-import { whiteList, IRouteItem, Pages } from './constant'
+import { whiteList, Pages } from './constant'
+import { IRouteItem } from './route/type'
 
 /** 路由拦截 */
 export default function RouteBeforeEach(props: {
