@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 11:23:21
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 11:30:45
+ * @ Modified time: 2023-03-23 11:42:34
  * @ Description: 个人中心子路由
  */
 
@@ -10,6 +10,7 @@ import { lazy } from 'react'
 import {
   AntOutline,
   HandPayCircleOutline,
+  MailOpenOutline,
   StarOutline,
   UserContactOutline,
 } from 'antd-mobile-icons'
@@ -56,6 +57,15 @@ export const PersonalPages: IRouteObj = {
       icons: UserContactOutline,
     },
     element: lazy(() => import('@/pages/personal/userInfo')),
+  },
+  ENQUIRE: {
+    path: '/enquire',
+    meta: {
+      title: '联系咨询',
+      needLogin: true,
+      icons: MailOpenOutline,
+    },
+    element: lazy(() => import('@/pages/personal/Enquire')),
   },
 }
 

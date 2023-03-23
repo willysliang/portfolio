@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-25 10:37:43
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-16 18:01:45
+ * @ Modified time: 2023-03-23 13:33:54
  * @ Description: 常量处理
  */
 
@@ -14,3 +14,6 @@ export const USER_INFO = 'USER_INFO_KEY__'
 
 /** 保存的账号密码 (记住密码 时需要用到) */
 export const SAVE_LOGIN = 'SAVE_LOGIN_KEY__'
+
+/** 图片基础路径 */
+export const baseImgUrl = '/'

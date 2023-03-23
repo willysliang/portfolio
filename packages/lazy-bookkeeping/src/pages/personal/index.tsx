@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 17:26:18
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-21 13:48:01
+ * @ Modified time: 2023-03-23 11:42:46
  * @ Description: personal 个人中心
  */
 import React, { FC, SVGProps } from 'react'
@@ -16,7 +16,6 @@ import { UserBgImg, avactorImg } from '@/assets'
 import s from './styles/index.module.scss'
 import {
   AntOutline,
-  MailOpenOutline,
   MovieOutline,
   TravelOutline,
 } from 'antd-mobile-icons'
@@ -90,7 +89,6 @@ export default function PersonalCenter() {
     })),
     { label: '看房记录', icons: MovieOutline, path: '' },
     { label: '成为房主', icons: TravelOutline, path: '' },
-    { label: '联系我们', icons: MailOpenOutline, path: '' },
   ]
 
   const navigate = useNavigate()

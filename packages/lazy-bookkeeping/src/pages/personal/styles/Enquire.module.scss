@@ -1,0 +1,42 @@
+.container {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+
+	.list-box {
+		flex: 1;
+		overflow-y: auto;
+		box-sizing: border-box;
+		padding: .5rem;
+		border-top: 1px solid #eee;
+
+		&-item {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			box-sizing: border-box;
+			padding: .8rem;
+			border-bottom: 1px solid #eee;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			&-right {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				margin-left: 1rem;
+			}
+
+			.justify-between {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+		}
+	}
+}
