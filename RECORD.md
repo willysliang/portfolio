@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 10:50:21
+ * @ Modified time: 2023-03-24 18:03:46
  * @ Description: 提交日志
 ---
 
@@ -26,6 +26,9 @@
 
 
 
+
+## 2023年3月24日18:03:38
+  - feat(@willy/lbk): 百度地图 Map
 
 ## 2023年3月24日10:49:22
   - feat(@willy/lbk): 找房模块FindHouse

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-22 11:00:40
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-22 11:06:44
+ * @ Modified time: 2023-03-24 12:49:01
  * @ Description: IconPark 图标
  */
 
@@ -18,6 +18,9 @@ interface IIconPark {
   strokeLinecap?: 'butt' | 'round' | 'square' // 端点类型
   strokeLinejoin?: 'miter' | 'round' | 'bevel' // 拐点类型
   strokeWidth?: number // 线段粗细
+
+  /** 事件 */
+  onClick?: () => void
 }
 
 const IconPark = ({ icon: Icon, ...props }: IIconPark) => {

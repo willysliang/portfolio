@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:53:11
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 10:39:45
+ * @ Modified time: 2023-03-24 18:00:29
  * @ Description: 房屋约束
  */
 
@@ -24,7 +24,7 @@ export interface IAreaCommunityItem {
 }
 
 export interface IAreaItem {
-  label: string | number
+  label: string
   value: string | number
 }
 

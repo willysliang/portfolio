@@ -2,9 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-22 10:41:06
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 10:13:35
+ * @ Modified time: 2023-03-24 10:56:59
  * @ Description: 租房常量
  */
+
+import subways from './house.subways'
 
 /** 楼层 */
 const floor = [
@@ -210,6 +212,7 @@ const tabsList = [
 ]
 
 export default {
+  subways,
   floor,
   rentType,
   oriented,
