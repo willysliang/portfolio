@@ -3,7 +3,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 16:37:59
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 18:43:42
+ * @ Modified time: 2023-03-24 22:04:15
  * @ Description: 找房 - 下拉选择组件
  */
 
@@ -27,6 +27,7 @@ interface IProps {
   ) => void
 }
 
+/** 找房 - 下拉选择组件 */
 const FindHouseDrop = ({ onSearch }: IProps) => {
   /** 定义下拉菜单属性 */
   const dropRef = useRef<DropdownRef>()
@@ -113,7 +114,7 @@ const FindHouseDrop = ({ onSearch }: IProps) => {
             <div
               style={{
                 maxHeight: '21rem',
-                overflow: 'auto',
+                overflowY: 'auto',
                 boxSizing: 'border-box',
                 padding: '.5rem',
               }}
@@ -130,7 +131,13 @@ const FindHouseDrop = ({ onSearch }: IProps) => {
         ))}
         <Dropdown.Item key="subways" title="地铁">
           <div
-            style={{ maxHeight: '21rem', overflow: 'hidden', display: 'flex' }}
+            style={{
+              maxHeight: '21rem',
+              overflowY: 'auto',
+              boxSizing: 'border-box',
+              padding: '.5rem',
+              display: 'flex',
+            }}
           >
             {/* <SideBar
               activeKey={activeKey}

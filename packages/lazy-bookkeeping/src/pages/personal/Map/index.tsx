@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 16:30:18
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 20:12:07
+ * @ Modified time: 2023-03-24 22:02:47
  * @ Description: 百度地图 Map
  */
 
@@ -159,7 +159,8 @@ const Map = React.memo(() => {
 
       if (zoomSize > 14) {
         // 获取当前被点击项
-        const target = e.domEvent.changedTouches[0]
+        const target = e.domEvent
+
         map.panBy(
           window.innerWidth / 2 - target.clientX,
           (window.innerHeight - 330) / 2 - target.clientY,
@@ -235,16 +236,14 @@ const Map = React.memo(() => {
 
   return (
     <div className={s.container}>
-      <CTitle title="百度地图" />
+      <CTitle
+        title="百度地图"
+        right={<span onClick={handleResetPoint}>重置房源</span>}
+      />
       <div className={s['nav']}>
-        <span>
+        <span onClick={() => setVisible(true)}>
           <b>小区:</b>&nbsp;{search.get('community') || 'willysliang address'}
         </span>
-        <CompassOutline
-          fontSize={25}
-          color="#cc5e56"
-          onClick={() => setVisible(true)}
-        />
         <CompassOutline
           fontSize={25}
           color="#cc5e56"
