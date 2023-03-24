@@ -2,12 +2,12 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:52:13
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 13:29:40
+ * @ Modified time: 2023-03-24 10:40:24
  * @ Description: 租房接口
  */
 
 import { request } from '@willy/utils'
-import type { IAreaCommunityItem, IHouseListItem, INewsItem } from '#/house'
+import type { IAreaCommunityItem, IAreaItem, IHouseListItem, INewsItem } from '#/house'
 
 /** 获取收藏的房屋信息列表 */
 export const getFavoritesList = async (
@@ -44,6 +44,21 @@ export const getAreaCommunity = async (
   const { data } = await request(
     {
       url: `/house/areaCommunity/list`,
+      method: 'get',
+      params,
+    },
+    { prefix: 'mock' },
+  )
+  return data
+}
+
+/** 获取城市区域数据 */
+export const getAreaChildList = async (
+  params: { id: string | number },
+): Promise<IAreaItem[]> => {
+  const { data } = await request(
+    {
+      url: `/house/area/city`,
       method: 'get',
       params,
     },

@@ -3,66 +3,75 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 16:37:59
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 17:53:43
+ * @ Modified time: 2023-03-24 10:40:49
  * @ Description: 下来选择组件
  */
 
-import React, { ForwardedRef, useRef, useState } from 'react'
+import React, { ForwardedRef, useEffect, useRef, useState } from 'react'
 import { Button, Dropdown, DropdownRef, Selector, SideBar } from 'antd-mobile'
 import houseParamsData from '@/pages/personal/constant/house'
+import { getAreaChildList } from '@/api/house'
+import { IAreaItem } from '#/house'
 import s from '../styles/FindHouse.module.scss'
 
 const DropdownItem = [
-  { key: 'area', title: '区域', option: 'area' },
-  { key: 'rentType', title: '方式', option: 'line' },
-  { key: 'price', title: '租金', option: 'price' },
+  { key: 'area', title: '区域' },
+  { key: 'rentType', title: '方式' },
+  { key: 'price', title: '租金' },
 ] as const
 
-const FindHouseDrop = () => {
-  // 定义下拉菜单属性
-  const dropRef = useRef<DropdownRef>()
-  // 定义预筛选的值
-  const [paramFormText, setParamFormText] = useState({})
-  const [activeKey, setActiveKey] = useState('roomType')
+interface IProps {
+  onSearch: (
+    params: Record<string, null | string | number | Array<number | string>>,
+  ) => void
+}
 
-  // 搜索表单数据
+const FindHouseDrop = ({ onSearch }: IProps) => {
+  /** 定义下拉菜单属性 */
+  const dropRef = useRef<DropdownRef>()
+  /** 定义预筛选的值 */
+  const [paramFormText, setParamFormText] = useState({})
+  /** 筛选栏活跃的标签 */
+  const [activeKey, setActiveKey] = useState(houseParamsData.tabsList[0].key)
+
+  /** 城市区域列表 */
+  const [areaList, setAreaList] = useState<IAreaItem[]>([])
+  const getAreaList = async () => {
+    const res = await getAreaChildList({ id: '11' })
+    setAreaList(res)
+  }
+  useEffect(() => {
+    getAreaList()
+  }, [])
+
+  /** 搜索表单数据 */
   const [paramForm, setParamForm] = useState({
     // cityId: Storage.get("location").value, // 地区的id
     cityId: 1, // 地区的id
     area: null, // 地区
     subway: null, // 地铁
-    rentType: null, // 整租
-    price: null, // 价格
-    roomType: '', // 房屋类型
-    oriented: '', // 朝向
-    characteristic: '', // 标签
-    floor: '', // 楼层
+    rentType: 'LINE|0', // 合租和整租方式
+    price: 'PRICE|null', // 价格
+    roomType: 'ROOM|d4a692e4-a177-37fd', // 房屋类型
+    oriented: 'ORIEN|141b98bf-1ad0-11e3', // 朝向
+    characteristic: 'CHAR|1d9bf0be-284f-93dd', // 标签
+    floor: 'FLOOR|1', // 楼层
     start: 1, // 开始项
     end: 20, // 结束项
   })
 
-  // 上拉加载是否还有更多内容
-  const [hasMore, setHasMore] = useState(false)
-
-  // 城市区域列表
-  const [areaList, setAreaList] = useState([])
-
-  // 下拉筛选操作回调
-  const handlerDropdown = (e, val) => {
-    const data = Object.assign({}, paramFormText, paramForm)
-    data[e] = val[0]
-    // 保存预筛选的值
-    setParamFormText(data)
+  /** 下拉筛选操作回调：保存预筛选的值 */
+  const handlerDropdown = (key, val) => {
+    setParamFormText(
+      Object.assign({}, paramFormText, paramForm, { [key]: val[0] }),
+    )
   }
 
-  // 确认筛选
+  /** 确认筛选：回调搜索事件 & 关闭下拉层 & 更新内容 */
   const handlerConfirm = () => {
     const data = Object.assign({}, paramFormText, paramForm, { start: 1 })
-    setHasMore(true)
-    // 把预筛选的值更新到请求表单里
+    onSearch(data)
     setParamForm(data)
-    // getSearchList(data);
-    // 关闭下拉菜单
     dropRef.current?.close()
   }
 
@@ -71,12 +80,21 @@ const FindHouseDrop = () => {
       <Dropdown ref={dropRef as ForwardedRef<DropdownRef>}>
         {DropdownItem.map((item) => (
           <Dropdown.Item key={item.key} title={item.title}>
-            <Selector
-              options={item.option ? houseParamsData[item.option] : areaList}
-              columns={3}
-              defaultValue={[houseParamsData[item.key]]}
-              onChange={(arr) => handlerDropdown(item.key, arr)}
-            />
+            <div
+              style={{
+                maxHeight: '21rem',
+                overflow: 'auto',
+                boxSizing: 'border-box',
+                padding: '.5rem',
+              }}
+            >
+              <Selector
+                options={houseParamsData?.[item.key] ?? areaList}
+                columns={3}
+                defaultValue={[houseParamsData[item.key]]}
+                onChange={(arr) => handlerDropdown(item.key, arr)}
+              />
+            </div>
             <div style={{ display: 'flex' }}>
               <Button
                 block
@@ -98,8 +116,10 @@ const FindHouseDrop = () => {
             </div>
           </Dropdown.Item>
         ))}
-        <Dropdown.Item key="activeKey" title="筛选">
-          <div style={{ height: '21rem', overflow: 'hidden', display: 'flex' }}>
+        <Dropdown.Item key="filter" title="筛选">
+          <div
+            style={{ maxHeight: '21rem', overflow: 'hidden', display: 'flex' }}
+          >
             <SideBar
               activeKey={activeKey}
               onChange={setActiveKey}

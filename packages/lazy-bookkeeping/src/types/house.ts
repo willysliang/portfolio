@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:53:11
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 13:02:08
+ * @ Modified time: 2023-03-24 10:39:45
  * @ Description: 房屋约束
  */
 
@@ -21,6 +21,11 @@ export interface IHouseListItem {
 export interface IAreaCommunityItem {
   id: string
   name: string
+}
+
+export interface IAreaItem {
+  label: string | number
+  value: string | number
 }
 
 /** 资讯信息列表子集 */

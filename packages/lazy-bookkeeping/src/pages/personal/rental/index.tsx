@@ -2,14 +2,14 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-16 15:23:46
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 16:01:28
+ * @ Modified time: 2023-03-24 10:36:28
  * @ Description: 我的出租 rental
  */
 
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NavBar } from 'antd-mobile'
-import HouseList from '@/components/house/HouseList'
+import HouseList from '../components/HouseList'
 import { IHouseListItem } from '#/house'
 import { getHousesList } from '@/api/house'
 import { Pages, PersonalPages } from '@/router/constant'

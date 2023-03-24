@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 10:34:49
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 13:35:11
+ * @ Modified time: 2023-03-24 10:36:03
  * @ Description: 房子列表 HouseList
  */
 
@@ -15,6 +15,7 @@ import { baseImgUrl } from '@willy/utils/constant'
 import cx from 'classnames'
 import s from './index.module.scss'
 
+/** 房子列表 */
 const HouseList = ({ list }: { list: Array<IHouseListItem> }) => {
   const navigate = useNavigate()
 

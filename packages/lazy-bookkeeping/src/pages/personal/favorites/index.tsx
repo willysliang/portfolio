@@ -2,14 +2,14 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-16 15:23:46
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 16:00:55
+ * @ Modified time: 2023-03-24 10:36:36
  * @ Description: 我的收藏 favorites
  */
 
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NavBar } from 'antd-mobile'
-import HouseList from '@/components/house/HouseList'
+import HouseList from '../components/HouseList'
 import { IHouseListItem } from '#/house'
 import { getFavoritesList } from '@/api/house'
 import s from '../styles/Favorites.module.scss'

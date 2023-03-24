@@ -2,8 +2,8 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-22 10:46:29
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-22 11:43:33
- * @ Description: 房屋配置
+ * @ Modified time: 2023-03-24 10:33:54
+ * @ Description: 房屋配置 HouseConfig
  */
 
 import React, { useState, useEffect } from 'react'
@@ -21,7 +21,6 @@ import {
   Sofa,
 } from '@icon-park/react'
 import IconPark from '@/components/common/IconPark'
-// import './index.scss'
 
 const data = [
   { label: '衣柜', icon: Bedside },

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Modified by: willysliang
  * @ Modified time: 2023-03-22 10:45:35
- * @ Modified time: 2023-03-23 16:07:36
+ * @ Modified time: 2023-03-24 10:35:39
  * @ Description: 发布房源 Publish
  */
 
@@ -17,7 +17,7 @@ import {
   Picker,
   TextArea,
 } from 'antd-mobile'
-import HousesConfig from '@/components/house/HouseConfig'
+import HousesConfig from '../components/HouseConfig'
 import PublishController from './PublishController'
 import PublishPopup from './PublishPopup'
 import PublishDialog from './PublishDialog'

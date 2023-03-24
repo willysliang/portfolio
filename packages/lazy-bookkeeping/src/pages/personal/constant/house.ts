@@ -2,11 +2,11 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-22 10:41:06
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-22 10:41:53
+ * @ Modified time: 2023-03-24 10:13:35
  * @ Description: 租房常量
  */
 
-// 楼层
+/** 楼层 */
 const floor = [
   {
     label: '高楼层',
@@ -22,23 +22,23 @@ const floor = [
   },
 ]
 
-// 合租和整租
-const line = [
+/** 合租和整租方式 */
+const rentType = [
   {
     label: '不限',
-    value: 'null',
+    value: 'LINE|0',
   },
   {
     label: '整租',
-    value: true,
+    value: 'LINE|1',
   },
   {
     label: '合租',
-    value: false,
+    value: 'LINE|2',
   },
 ]
 
-// 朝向
+/** 朝向 */
 const oriented = [
   {
     label: '东',
@@ -73,11 +73,11 @@ const oriented = [
     value: 'ORIEN|80795f1a-e32f-feb9',
   },
 ]
-// 价格
+/** 价格 */
 const price = [
   {
     label: '不限',
-    value: 'null',
+    value: 'PRICE|null',
   },
   {
     label: '1000及以下',
@@ -109,7 +109,7 @@ const price = [
   },
 ]
 
-// 房屋类型
+/** 房屋类型 */
 const roomType = [
   {
     label: '一室',
@@ -133,7 +133,7 @@ const roomType = [
   },
 ]
 
-// 房屋亮点
+/** 房屋亮点 */
 const characteristic = [
   {
     label: '精装',
@@ -189,6 +189,7 @@ const characteristic = [
   },
 ]
 
+/** 要展示的列表 */
 const tabsList = [
   {
     key: 'roomType',
@@ -210,7 +211,7 @@ const tabsList = [
 
 export default {
   floor,
-  line,
+  rentType,
   oriented,
   price,
   roomType,

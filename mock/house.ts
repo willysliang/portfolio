@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:58:13
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 13:31:51
+ * @ Modified time: 2023-03-24 09:39:22
  * @ Description: 租房模拟接口
  */
 
@@ -52,9 +52,22 @@ const houses = [
       }
     },
   },
+
+  /** 发布房源 */
+  {
+    url: `/house/houses`,
+    method: 'post',
+    response() {
+      return {
+        code: 200,
+        msg: 'success',
+      }
+    },
+  },
 ]
 
-const publish = [
+/** 区域相关 */
+const area = [
   /** 获取区域列表 */
   {
     url: `/house/areaCommunity/list`,
@@ -73,14 +86,20 @@ const publish = [
     },
   },
 
-  /** 发布房源 */
+  /** 获取城市区域数据列表 */
   {
-    url: `/house/houses`,
-    method: 'post',
+    url: `/house/area/city`,
+    method: 'get',
     response() {
       return {
         code: 200,
         msg: 'success',
+        'data|1-100': [
+          {
+            value: '@id()',
+            label: '@county(true)' + '@cname()' + '@cword(3, 5)' + '@zip()',
+          },
+        ],
       }
     },
   },
@@ -108,10 +127,4 @@ const enquire = [
   },
 ]
 
-
-export default [
-  ...favorites,
-  ...houses,
-  ...publish,
-  ...enquire,
-]
+export default [...favorites, ...houses, ...area, ...enquire]
