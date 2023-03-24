@@ -2,12 +2,18 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:52:13
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 10:40:24
+ * @ Modified time: 2023-03-24 20:11:09
  * @ Description: 租房接口
  */
 
 import { request } from '@willy/utils'
-import type { IAreaCommunityItem, IAreaItem, IHouseListItem, INewsItem } from '#/house'
+import type {
+  IAreaCommunityItem,
+  IAreaItem,
+  IAreaMapItem,
+  IHouseListItem,
+  INewsItem,
+} from '#/house'
 
 /** 获取收藏的房屋信息列表 */
 export const getFavoritesList = async (
@@ -53,12 +59,27 @@ export const getAreaCommunity = async (
 }
 
 /** 获取城市区域数据 */
-export const getAreaChildList = async (
-  params: { id: string | number },
-): Promise<IAreaItem[]> => {
+export const getAreaChildList = async (params: {
+  id: string | number
+}): Promise<IAreaItem[]> => {
   const { data } = await request(
     {
       url: `/house/area/city`,
+      method: 'get',
+      params,
+    },
+    { prefix: 'mock' },
+  )
+  return data
+}
+
+/** 查询房源数据 */
+export const getAreaMap = async (params: {
+  id: string | number
+}): Promise<IAreaMapItem[]> => {
+  const { data } = await request(
+    {
+      url: `/house/area/map`,
       method: 'get',
       params,
     },

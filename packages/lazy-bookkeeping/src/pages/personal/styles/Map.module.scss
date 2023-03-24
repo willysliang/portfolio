@@ -11,13 +11,33 @@
 		align-items: center;
 		justify-content: space-between;
 		box-sizing: border-box;
-		padding: .5rem;
+		padding: 0.5rem;
 	}
 
 	.baidu-map {
 		flex: 1;
 		border-top: 1px solid #eee;
 
+		/* 区、镇的覆盖物样式： */
+		.bubble {
+			width: 70px;
+			height: 70px;
+			line-height: 1;
+			display: inline-block;
+			position: absolute;
+			border-radius: 100%;
+			background: rgb(12 181 106 / 90%);
+			color: #fff;
+			border: 2px solid rgb(255 255 255 / 80%);
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.name {
+			padding: 18px 0 6px;
+		}
+
+		/* 小区的覆盖物样式： */
 		.rect {
 			display: flex;
 			align-items: center;
@@ -37,10 +57,23 @@
 			display: block;
 			width: 0;
 			height: 0;
-			border: .3rem solid transparent;
-			border-top-width: .5rem;
+			border: 0.3rem solid transparent;
+			border-top-width: 0.5rem;
 			border-top-color: #cc5e56;
-			bottom: -.75rem;
+			bottom: -0.75rem;
+		}
+
+		.housename {
+			display: inline-block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			vertical-align: middle;
+			margin-right: 2px;
+		}
+
+		.housenum {
+			display: inline-block;
 		}
 	}
 }

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 14:02:14
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 18:01:33
+ * @ Modified time: 2023-03-24 19:06:57
  * @ Description: 找房 FindHouse
  */
 
@@ -24,7 +24,6 @@ const FindHouse = () => {
 
   /** 房子列表 */
   const [houselist, setHouselist] = useState<IHouseListItem[]>([])
-
   const getHouses = async (isMore = true, params = {}) => {
     try {
       const res = await getHousesList(params)

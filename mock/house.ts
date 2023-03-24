@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:58:13
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 09:39:22
+ * @ Modified time: 2023-03-24 19:55:54
  * @ Description: 租房模拟接口
  */
 
@@ -98,6 +98,29 @@ const area = [
           {
             value: '@id()',
             label: '@county(true)' + '@cname()' + '@cword(3, 5)' + '@zip()',
+          },
+        ],
+      }
+    },
+  },
+
+  /** 查询房源数据 */
+  {
+    url: `/house/area/map`,
+    method: 'get',
+    response() {
+      return {
+        code: 200,
+        msg: 'success',
+        'data|1-100': [
+          {
+            id: '@id()',
+            label: '@county(true)' + '@cname()' + '@cword(3, 5)' + '@zip()',
+            count: '@integer(1, 100)',
+            coord: {
+              longitude: '@float(0,180, 6, 6)',
+              latitude: '@float(0,90, 6, 6)',
+            },
           },
         ],
       }
