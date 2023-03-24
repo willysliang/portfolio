@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 11:15:50
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 11:16:56
+ * @ Modified time: 2023-03-24 18:16:12
  * @ Description: 类型约束
  */
 
@@ -19,6 +19,8 @@ export interface IRouteItem {
     title: string
     /** 是否需要登录 */
     needLogin?: boolean
+    /** 是否缓存路由  */
+    KeepAlive?: boolean
     /** 图标 */
     icons?: FC<SVGProps<SVGSVGElement>>
     /** 是否不需要懒加载 */

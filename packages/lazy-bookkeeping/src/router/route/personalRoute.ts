@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 11:23:21
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 16:32:31
+ * @ Modified time: 2023-03-24 18:22:44
  * @ Description: 个人中心子路由
  */
 
@@ -74,6 +74,7 @@ export const PersonalPages: IRouteObj = {
     meta: {
       title: '找房',
       needLogin: true,
+      KeepAlive: true,
       icons: SearchOutline,
     },
     element: lazy(() => import('@/pages/personal/FindHouse')),
@@ -96,6 +97,7 @@ export const HousePages: IRouteObj = {
     meta: {
       title: '地图',
       needLogin: true,
+      KeepAlive: true,
       icons: EnvironmentOutline,
     },
     element: lazy(() => import('@/pages/personal/Map')),
