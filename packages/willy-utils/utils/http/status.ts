@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-24 17:50:27
  * @ Modified by: willysliang
- * @ Modified time: 2023-01-27 10:12:12
+ * @ Modified time: 2023-03-25 21:17:50
  * @ Description: http 状态码
  */
 
@@ -53,7 +53,7 @@ export const errorMessage = (
       errorInfo = `连接出错(${status})，请检查网络或联系管理员！`
   }
 
-  console.log(`请求错误：${!mes ? errorInfo : mes}`)
+  console.warn(`请求错误：${!mes ? errorInfo : mes}`)
   return {
     status,
     msg: `${!mes ? mes : errorInfo}`,

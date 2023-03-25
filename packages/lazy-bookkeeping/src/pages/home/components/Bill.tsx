@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-03 16:41:21
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-14 10:14:11
+ * @ Modified time: 2023-03-25 21:16:38
  * @ Description: 账单 Bill
  */
 
@@ -57,7 +57,7 @@ export default function Bill({ bill }: Props) {
         },
       })
     } else if (action.key === 'changeType') {
-      console.log('changeType')
+      // 修改分类
     }
   }
 

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-24 17:50:27
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-01 10:08:11
+ * @ Modified time: 2023-03-25 21:17:46
  * @ Description: 网络请求
  */
 
@@ -126,7 +126,7 @@ export const request = async (
 
     // 自定义参数，是否允许全局提示错误信息
     if (options.showResponseMessage) {
-      console.log(res.data?.message || '请求处理失败！')
+      console.warn(res.data?.message || '请求处理失败！')
     }
     return res.data
   } catch (error) {

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-12 16:47:33
  * @ Modified by: willysliang
- * @ Modified time: 2023-02-02 16:30:09
+ * @ Modified time: 2023-03-25 21:15:03
  * @ Description: 项目配置
  */
 
@@ -51,6 +51,15 @@ export default defineConfig({
       '@api': path.resolve(__dirname, './src/api'),
       '#': path.resolve(__dirname, './src/types'),
     },
+  },
+  build: {
+    // es2020 支持 import.meta 语法
+    target: 'es2020',
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+      },
+    }
   },
   server: {
     port: 4002, // 类型： number 指定服务器端口;
