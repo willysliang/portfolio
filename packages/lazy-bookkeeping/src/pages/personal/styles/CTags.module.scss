@@ -1,0 +1,38 @@
+.tags {
+	margin: 0.1rem;
+
+	.tag_ {
+		display: inline-block;
+		font-size: 0.8rem;
+		border-radius: 0.3rem;
+		box-sizing: border-box;
+		padding: 0.3rem;
+		margin-right: 0.5rem;
+		line-height: 0.8rem;
+	}
+
+	.tag_0 {
+		color: #f90;
+		background: #fdf6ec;
+	}
+
+	.tag_1 {
+		color: #39becd;
+		background: #e1f5f8;
+	}
+
+	.tag_2 {
+		color: #3fc28c;
+		background: #e1f5ed;
+	}
+
+	.tag_3 {
+		color: #5aabfd;
+		background: #e6f2ff;
+	}
+
+	.tag_4 {
+		color: #fa3534;
+		background: #fef0f0;
+	}
+}

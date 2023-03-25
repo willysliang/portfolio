@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-12-12 16:47:33
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-17 18:54:52
+ * @ Modified time: 2023-03-25 20:33:35
  * @ Description: 页面大框
  */
 
@@ -36,7 +36,8 @@ function App() {
       </Routes> */}
       {elements}
 
-      <Outlet/>
+      {/* 子路由的存放位置 */}
+      <Outlet />
 
       {/* 导航栏 */}
       <Tabbar />

@@ -2,17 +2,17 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 10:34:49
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 10:36:03
+ * @ Modified time: 2023-03-25 15:53:50
  * @ Description: 房子列表 HouseList
  */
 
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Image } from 'antd-mobile'
-import { HousePages } from '@/router/constant'
+import CTags from '../CTags'
+import { HousesPath } from '@/router/constant'
 import { IHouseListItem } from '#/house'
 import { baseImgUrl } from '@willy/utils/constant'
-import cx from 'classnames'
 import s from './index.module.scss'
 
 /** 房子列表 */
@@ -25,11 +25,7 @@ const HouseList = ({ list }: { list: Array<IHouseListItem> }) => {
         <div
           className={s['houses-list-item']}
           key={index}
-          onClick={() =>
-            navigate(HousePages.HOUSES.path, {
-              state: { code: item.houseCode },
-            })
-          }
+          onClick={() => navigate(`${HousesPath}/${item.id}`)}
         >
           <Image
             src={baseImgUrl + item.houseImg}
@@ -40,19 +36,7 @@ const HouseList = ({ list }: { list: Array<IHouseListItem> }) => {
           <div className={s['right-content']}>
             <div className={s['title']}>{item.title}</div>
             <div className={s['desc']}>{item.desc}</div>
-            <div className={s['tags']}>
-              {item.tags?.map((tag, index) => (
-                <span
-                  className={cx({
-                    [s['tag_']]: true,
-                    [s[['tag_' + index].join(' ')]]: true,
-                  })}
-                  key={tag}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <CTags tags={item.tags} />
             <div className={s['price_']}>
               <span>{item.price}</span> 元/月
             </div>

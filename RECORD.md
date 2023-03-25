@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 22:14:14
+ * @ Modified time: 2023-03-25 20:34:28
  * @ Description: 提交日志
 ---
 
@@ -26,6 +26,9 @@
 
 
 
+
+## 2023年3月25日20:34:01
+  - feat(@willy/lbk): 房屋详情 Houses
 
 ## 2023年3月24日22:13:01
   -fix(@willy/lbk): 百度地图Map & 房屋通用组件HouseList

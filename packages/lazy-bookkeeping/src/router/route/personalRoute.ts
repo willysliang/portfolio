@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-23 11:23:21
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 18:22:44
+ * @ Modified time: 2023-03-25 15:40:01
  * @ Description: 个人中心子路由
  */
 
@@ -81,16 +81,19 @@ export const PersonalPages: IRouteObj = {
   },
 }
 
+/** 房屋详情路径 */
+export const HousesPath = '/houses'
+
 /** house 路由表 */
 export const HousePages: IRouteObj = {
   HOUSES: {
-    path: '/houses',
+    path: `${HousesPath}/:code`,
     meta: {
       title: '房屋详情',
       needLogin: true,
       icons: StarOutline,
     },
-    element: lazy(() => import('@/pages/personal/favorites')),
+    element: lazy(() => import('@/pages/personal/Houses')),
   },
   MAP: {
     path: '/maps',

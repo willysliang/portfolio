@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-16 15:23:46
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 16:02:28
+ * @ Modified time: 2023-03-25 19:34:12
  * @ Description: 个人资料 userInfo
  */
 
@@ -14,6 +14,14 @@ import { Storage } from '@willy/utils'
 import { USER_INFO } from '@willy/utils/constant'
 import { updateUserInfo } from '@/api/user'
 import s from '../styles/UerInfo.module.scss'
+
+/** 用户信息 */
+interface IUserInfo {
+  mobile: number | string
+  nickname: string
+  /** 性别：0女 1男 2未知 */
+  gender: [string]
+}
 
 const UserInfo = () => {
   const navigate = useNavigate()
@@ -42,13 +50,13 @@ const UserInfo = () => {
     return Promise.resolve()
   }
 
-  const onFinish = (params: any) => {
+  const onFinish = (params: IUserInfo) => {
     Dialog.confirm({
       title: '提示',
       content: '是否确认修改个人资料？',
       onConfirm: async () => {
         try {
-          await updateUserInfo(params)
+          await updateUserInfo({ ...params, gender: params.gender[0] })
           Toast.show({
             content: '修改成功',
             icon: 'success',
@@ -56,7 +64,7 @@ const UserInfo = () => {
             maskClickable: false,
           })
           // 缓存用户信息
-          Storage.set(USER_INFO, params)
+          Storage.set(USER_INFO, { ...params, gender: params.gender[0] })
           navigate(-1)
         } catch {}
       },

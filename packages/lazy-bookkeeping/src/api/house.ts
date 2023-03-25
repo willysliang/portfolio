@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:52:13
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 20:11:09
+ * @ Modified time: 2023-03-25 13:48:35
  * @ Description: 租房接口
  */
 
@@ -12,6 +12,7 @@ import type {
   IAreaItem,
   IAreaMapItem,
   IHouseListItem,
+  IHousesDetail,
   INewsItem,
 } from '#/house'
 
@@ -37,6 +38,20 @@ export const getHousesList = async (params = {}): Promise<IHouseListItem[]> => {
       url: `/house/houses/list`,
       method: 'get',
       params,
+    },
+    { prefix: 'mock' },
+  )
+  return data
+}
+
+/** 查询房屋具体信息 */
+export const getHousesDetail = async (
+  areaCode: number | string = 0,
+): Promise<IHousesDetail> => {
+  const { data } = await request(
+    {
+      url: `/house/houses/details?code=${areaCode}`,
+      method: 'get',
     },
     { prefix: 'mock' },
   )

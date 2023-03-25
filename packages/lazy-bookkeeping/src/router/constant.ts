@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 12:06:20
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 11:35:57
+ * @ Modified time: 2023-03-25 15:40:25
  * @ Description: 路由常量
  */
 
@@ -12,6 +12,7 @@ import {
   PersonalPages,
   HousePages,
   PersonPath,
+  HousesPath,
   getPersonalPages,
 } from './route/personalRoute'
 
@@ -30,5 +31,6 @@ export {
   PersonPath,
   getPersonalPages,
   /** 房屋路由 */
+  HousesPath,
   HousePages,
 }

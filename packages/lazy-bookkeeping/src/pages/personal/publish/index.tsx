@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Modified by: willysliang
  * @ Modified time: 2023-03-22 10:45:35
- * @ Modified time: 2023-03-24 10:35:39
+ * @ Modified time: 2023-03-25 20:01:25
  * @ Description: 发布房源 Publish
  */
 
@@ -38,7 +38,7 @@ const Publish = () => {
     description: '',
     houseImg: [],
     oriented: '',
-    supporting: '',
+    supporting: [],
     price: '',
     roomType: '',
     size: '',

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-02 13:57:38
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-23 15:17:27
+ * @ Modified time: 2023-03-24 22:55:48
  * @ Description: 图片
  */
 
@@ -21,6 +21,11 @@ import Nav2 from './images/nav-2.png'
 import Nav3 from './images/nav-3.png'
 import Nav4 from './images/nav-4.png'
 
+/** 租房轮播图 */
+import houseSwiper1 from './images/house.swiper-1.jpg'
+import houseSwiper2 from './images/house.swiper-2.jpg'
+import houseSwiper3 from './images/house.swiper-3.jpg'
+
 export {
   loginSVG,
   signupSVG,
@@ -31,4 +36,7 @@ export {
   Nav2,
   Nav3,
   Nav4,
+  houseSwiper1,
+  houseSwiper2,
+  houseSwiper3,
 }

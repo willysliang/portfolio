@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-22 10:46:29
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 10:33:54
+ * @ Modified time: 2023-03-25 19:52:13
  * @ Description: 房屋配置 HouseConfig
  */
 
@@ -22,7 +22,7 @@ import {
 } from '@icon-park/react'
 import IconPark from '@/components/common/IconPark'
 
-const data = [
+export const houseConfigData = [
   { label: '衣柜', icon: Bedside },
   { label: '洗衣机', icon: WashingMachine },
   { label: '空调', icon: AirConditioning },
@@ -36,15 +36,20 @@ const data = [
 ]
 
 interface IProps {
-  configItem: string
+  configItem: string | Array<string>
   handConfig?: (val: string) => void
 }
 
+/** 房屋配置 */
 const HouseConfig = (props: IProps) => {
   const [houseConfig, sethouseConfig] = useState<Array<string>>([])
 
   useEffect(() => {
-    sethouseConfig(props.configItem.split('|'))
+    if (typeof props.configItem === 'string') {
+      sethouseConfig(props.configItem.split('|'))
+    } else {
+      sethouseConfig(props.configItem)
+    }
   }, [props])
 
   /** 根据颜色来渲染 */
@@ -64,12 +69,16 @@ const HouseConfig = (props: IProps) => {
 
     sethouseConfig(configItem)
     // 回调函数到父组件
-    props.handConfig(configItem.join('|'))
+    if (typeof props.configItem === 'string') {
+      props.handConfig(configItem.join('|'))
+    } else {
+      props.handConfig(configItem)
+    }
   }
 
   return (
     <Grid columns={5} gap={10}>
-      {data.map((item) => (
+      {houseConfigData.map((item) => (
         <Grid.Item
           key={item.label}
           style={{

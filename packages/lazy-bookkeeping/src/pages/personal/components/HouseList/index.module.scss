@@ -4,12 +4,12 @@
 	flex: 1;
 	overflow-y: auto;
 	box-sizing: border-box;
-	padding: .5rem;
+	padding: 0.5rem;
 
 	&-item {
 		box-sizing: border-box;
 		width: 100%;
-		padding: .5rem 0;
+		padding: 0.5rem 0;
 		border-bottom: 1px solid #eee;
 		display: flex;
 
@@ -29,56 +29,17 @@
 			}
 
 			.desc {
-				font-size: .8rem;
+				font-size: 0.8rem;
 				color: #afb2b3;
 			}
 
 			.price_ {
-				font-size: .8rem;
+				font-size: 0.8rem;
 				color: #fa5741;
 
 				& > span {
 					font-size: 1rem;
 					font-weight: bolder;
-				}
-			}
-
-			.tags {
-				margin: .1rem;
-
-				.tag_ {
-					display: inline-block;
-					font-size: .8rem;
-					border-radius: .3rem;
-					box-sizing: border-box;
-					padding: .2rem;
-					margin-right: .5rem;
-					line-height: .8rem;
-				}
-  
-				.tag_0 {
-					color: #f90;
-					background: #fdf6ec;
-				}
-  
-				.tag_1 {
-					color: #39becd;
-					background: #e1f5f8;
-				}
-  
-				.tag_2 {
-					color: #3fc28c;
-					background: #e1f5ed;
-				}
-  
-				.tag_3 {
-					color: #5aabfd;
-					background: #e6f2ff;
-				}
-  
-				.tag_4 {
-					color: #fa3534;
-					background: #fef0f0;
 				}
 			}
 		}

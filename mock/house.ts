@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-03-21 11:58:13
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-24 19:55:54
+ * @ Modified time: 2023-03-25 19:59:06
  * @ Description: 租房模拟接口
  */
 
@@ -49,6 +49,69 @@ const houses = [
             price: '@float(0,1000,2, 2)',
           },
         ],
+      }
+    },
+  },
+
+  /** 查询房屋具体信息 */
+  {
+    url: `/house/houses/details`,
+    method: 'get',
+    response({ query }) {
+      if (query.code) {
+        const oriented = [
+          '正东',
+          '东南',
+          '正南',
+          '西南',
+          '正西',
+          '西北',
+          '正北',
+          '东北',
+        ]
+        const supporting = [
+          '衣柜',
+          '洗衣机',
+          '空调',
+          '天然气',
+          '冰箱',
+          '暖气',
+          '电视',
+          '热水器',
+          '宽带',
+          '沙发',
+        ]
+
+        return {
+          code: 200,
+          msg: 'success',
+          data: {
+            id: '@id()',
+            'tags|1-4': ['@cword(3)'],
+            price: '@float(0,1000,2, 2)',
+            'oriented|1-4': [`@pick(${oriented})`],
+            room: '普通住宅',
+            floor: "@string('一二三四五六七八九十', 1) 楼",
+            roomType: "@string('一二三四五六七八九十', 1) 室",
+            size: `@integer(10, 200) x @integer(10, 200) 平方米`,
+            'supporting|1-10': [`@pick(${supporting})`],
+            userImg: 'avactor.jpg',
+            nickname: '@cname()',
+            gender: "@string('123', 1)",
+            authorization: '@boolean(9, 1, true)',
+            desc:
+              '@county(true)' +
+              '@cname()' +
+              '@cword(3, 5)' +
+              '@zip()' +
+              '@cword(100, 500)',
+          },
+        }
+      } else {
+        return {
+          code: 500,
+          msg: '不存在该房屋信息！',
+        }
       }
     },
   },
