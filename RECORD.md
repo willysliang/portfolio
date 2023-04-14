@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-01-10 11:07:51
  * @ Modified by: willysliang
- * @ Modified time: 2023-04-14 09:57:35
+ * @ Modified time: 2023-04-14 12:01:38
  * @ Description: 提交日志
 ---
 
@@ -27,6 +27,9 @@
 
 
 
+
+## 2023年4月14日12:00:53
+  - fix(@willy/mp): 修复添加子项目时依赖问题
 
 ## 2023年4月14日09:43:12
   - modules(@willy/mp): 添加 vue 的音乐播放器子项目

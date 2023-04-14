@@ -6,6 +6,26 @@
 #### 软件架构
 软件架构说明
 
+```bash
+## 软件架构说明
+
+| —— mock 模拟的后端接口
+
+（通常是引入别人的项目作为一些依赖，比如后端接口的node；或是如小程序、uniapp这种不需要安装依赖的子项目）
+| —— modules 非依赖的子项目
+|		| —— NeteaseCloudMusicApi 网易云音乐后端接口（node版本）
+|		| —— weChat 微信小程序项目（因为无需安装依赖包，所以放入在这）
+		
+| —— packages 需要自动安装依赖的子项目(如pnpm会自动给里面的子项目安装依赖)
+|		| —— lazy-bookkeeping 懒人记账（React版本）
+|		| —— music-player 音乐播放器（Vue3版本）
+|		| —— willy-utils 通用工具库（封装通用方法提供给其他子项目调用，如 http 请求）
+
+| —— server 后端（如node）
+```
+
+
+
 
 #### 安装教程
 

@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2022-11-04 18:40:51
+ * @ Modified time: 2023-04-14 11:07:30
  * @ Description: 入口文件
  */
 
@@ -13,7 +13,12 @@ import router from './router'
 
 import 'element-plus/dist/index.css'
 import { setupI18n } from './locales'
-import { setupAssets, setupElementUI, setupCustomComponents, setupGlobalMethods } from '@/config/plugins'
+import {
+  setupAssets,
+  setupElementUI,
+  setupCustomComponents,
+  setupGlobalMethods,
+} from '@/config/plugins'
 
 const app = createApp(App)
 
