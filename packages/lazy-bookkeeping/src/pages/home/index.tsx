@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2023-02-01 14:02:08
  * @ Modified by: willysliang
- * @ Modified time: 2023-03-14 10:20:15
+ * @ Modified time: 2023-04-14 09:33:35
  * @ Description: 首页
  */
 
@@ -23,13 +23,13 @@ import {
 } from 'antd-mobile'
 import { PullStatus } from 'antd-mobile/es/components/pull-to-refresh'
 import { AppstoreOutline, DownFill, EditSOutline } from 'antd-mobile-icons'
-import { ListBillDto, Tag } from '#/api'
-import { OneDayBills } from '#/global'
 import TagPopup, { TagPopupExpose } from './components/TagPopup'
 import DatePopup, { DatePopupExpose } from './components/DatePopup'
 import AddBillPopup, { AddBillPopupExpose } from './components/AddBillPopup'
 import BillItem from './components/BillItem'
 import dayjs from 'dayjs'
+import { ListBillDto, Tag } from '#/api'
+import { OneDayBills } from '#/global'
 import { fetchBillList } from '@/api/bill'
 import s from './styles/index.module.scss'
 
