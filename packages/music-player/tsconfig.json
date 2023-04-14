@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    // "allowJs": true, // 允许在ts中使用普通 JS 代码
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "noImplicitAny": false,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "#/*": ["./types/*"],
+      "@comp/*": ["./src/components/*"],
+      "@view/*": ["./src/views/*"],
+      "@type/*": ["./src/types/*"],
+      "@store/*": ["./src/store/*"],
+      "@api/*": ["./src/api/module/*"],
+      "@util/*": ["./src/utils/*"]
+    },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "types": [
+      "vite/client",
+      "element-plus/global",
+      // "unplugin-vue-define-options",
+      "unplugin-vue-define-options/macros-global"
+    ],
+    "resolveJsonModule": true // 可导入JSON
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.d.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "./tests/**/*.ts",
+    "./tests/**/*.tsx",
+    "./types/**/*.d.ts",
+    "./types/**/*.ts",
+    "./mock/**/*.ts",
+    "./vite.config.ts",
+  ],
+  "exclude": ["./node_modules", "node_modules", "./tests/server/**/*.ts", "./dist", "**/*.js", "./public"]
+}

@@ -17,6 +17,8 @@
     "format": "prettier --w src/**/*.{ts,tsx,css,less,scss,js} src/*.{js,ts,tsx,css,less,scss}",
     "serve:lbk": "pnpm -F \"@willy/lbk\" serve",
     "build:lbk": "pnpm -F \"@willy/lbk\" build",
+    "serve:mp": "pnpm -F \"@willy/mp\" serve",
+    "build:mp": "pnpm -F \"@willy/mp\" build",
     "server": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
