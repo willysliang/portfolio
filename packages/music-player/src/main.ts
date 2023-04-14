@@ -2,7 +2,7 @@
  * @ Author: willysliang
  * @ Create Time: 2022-10-10 09:05:41
  * @ Modified by: willysliang
- * @ Modified time: 2023-04-14 11:07:30
+ * @ Modified time: 2023-04-14 12:41:36
  * @ Description: 入口文件
  */
 
@@ -10,8 +10,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
-
-import 'element-plus/dist/index.css'
 import { setupI18n } from './locales'
 import {
   setupAssets,
@@ -19,6 +17,7 @@ import {
   setupCustomComponents,
   setupGlobalMethods,
 } from '@/config/plugins'
+import 'element-plus/dist/index.css'
 
 const app = createApp(App)
 

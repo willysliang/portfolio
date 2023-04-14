@@ -27,9 +27,23 @@ import server from './config/vite/server'
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? './' : '/',
   // cacheDir: './node_modules/.vite', // 存储缓存文件的目录。此目录下会存储预打包的依赖项或 vite
+  publicDir: './public',
   build: {
     // es2020 支持 import.meta 语法
     target: 'es2020',
+    outDir: './dist', // 指定输出路径
+    assetsInlineLimit: 4096, // 小于此阈值的导入或引用资源将内联为 base64 编码
+    cssCodeSplit: true, // 启用 CSS 代码拆分
+    cssTarget: '', // 允许用户为 CSS 的压缩设置一个不同的浏览器 target 与 build.target 一致
+    sourcemap: false, // 构建后是否生成 source map 文件
+    manifest: false, // 当设置为 true，构建后将会生成 manifest.json 文件
+    ssrManifest: false, // 构建不生成 SSR 的 manifest 文件
+    ssr: undefined, // 生成面向 SSR 的构建
+    write: true, // 启用将构建后的文件写入磁盘
+    emptyOutDir: true, // 构建时清空该目录
+    // brotliSize: true, // 启用 brotli 压缩大小报告
+    chunkSizeWarningLimit: 500, // chunk 大小警告的限制
+    watch: null, // 设置为 {} 则会启用 rollup 的监听器
     // 自定义底层的 Rollup 打包配置
     rollupOptions: {
       input: {
@@ -46,21 +60,6 @@ export default defineConfig({
         }
       }, */
     },
-    outDir: './dist', // 指定输出路径
-    assetsInlineLimit: 4096, // 小于此阈值的导入或引用资源将内联为 base64 编码
-    cssCodeSplit: true, // 启用 CSS 代码拆分
-    cssTarget: '', // 允许用户为 CSS 的压缩设置一个不同的浏览器 target 与 build.target 一致
-    sourcemap: false, // 构建后是否生成 source map 文件
-    manifest: false, // 当设置为 true，构建后将会生成 manifest.json 文件
-    ssrManifest: false, // 构建不生成 SSR 的 manifest 文件
-    ssr: undefined, // 生成面向 SSR 的构建
-    minify: 'esbuild', // 指定使用哪种混淆器
-    terserOptions: {}, // 传递给 Terser 的更多 minify 选项
-    write: true, // 启用将构建后的文件写入磁盘
-    emptyOutDir: true, // 构建时清空该目录
-    // brotliSize: true, // 启用 brotli 压缩大小报告
-    chunkSizeWarningLimit: 500, // chunk 大小警告的限制
-    watch: null, // 设置为 {} 则会启用 rollup 的监听器
   },
   resolve: {
     // 设置别名
@@ -106,14 +105,17 @@ export default defineConfig({
     }),
     /* 配置 mockjs */
     viteMockServe({
-      mockPath: './mock',
-      localEnabled: true,
-      prodEnabled: false, // 实际开发请关闭，会影响打包体积
-      // https://github.com/anncwb/vite-plugin-mock/issues/9
+      mockPath: '../../mock', // mock目录地址 demo中创建的是mock
+      localEnabled: true, // 是否在开发环境中启用
+      prodEnabled: true, // 是否在生产环境中启用
+      supportTs: true, // 是否支持TS
+      watchFiles: true, // 监听文件
+      // 添加处理生产环境文件
       injectCode: `
-       import { setupProdMockServer } from './mock/_createProdMockServer';
-       setupProdMockServer();
-       `,
+          import { setupProdMockServer } from '../../mock/__mockProdServe.ts';
+          setupProdMockServer();
+        `,
+      // injectFile: path.resolve(process.cwd(), 'src/main.ts'),
     }),
     viteCompression({
       verbose: true, // 默认即可
