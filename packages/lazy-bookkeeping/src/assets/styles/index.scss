@@ -25,11 +25,23 @@ body {
 
 .App {
 	width: 100vw;
-	height: calc(100vh - 4.5rem);
 	overflow: hidden;
 	background-color: $color-background;
 	display: flex;
 	flex-direction: column;
+}
+.App__has-tab {
+	height: calc(100vh - 4.5rem);
+}
+.App__not-tab {
+	height: 100vh;
+}
+
+.demo-page {
+	background-color: #4f4d4d;
+	color: #dbd5d5;
+	width: 100vw;
+	height: 100vh;
 }
 
 .tabbar {

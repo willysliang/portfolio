@@ -32,9 +32,9 @@ function RouteBeforeEach(props: { route: IRouteItem; children?: ReactNode }) {
     return <Navigate to={Pages.LOGIN.path} replace />
   }
 
-  if (props.route.path === '/') {
+  /* if (props.route.path === '/') {
     return <Navigate to={Pages.DEMO.path} replace />
-  }
+  } */
 
   {
     /* React.lazy动态加载页面或者组件，建议配合Suspense使用再进行渲染 */

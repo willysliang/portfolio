@@ -70,7 +70,7 @@ export const Pages: IRouteObj = {
       needLogin: false,
     },
     element: lazy(() => import('@/views/index')),
-    redirect: '/demo/c',
+    redirect: `/demo/${DemoPages.INDEX.path}`,
     children: getPageRoutes<any>(DemoPages),
   },
 }

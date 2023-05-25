@@ -11,9 +11,11 @@ import { IRouteObj } from './type'
 
 /** 案例路由集合 */
 export const DemoPages: IRouteObj = {
-  DEMO: {
-    path: 'c', 
-    element: lazy(() => import('@/pages/rank')), 
-    meta: { title: 'aaa' },
+  INDEX: {
+    path: 'index',
+    element: lazy(() => import('@/views/home')),
+    meta: { 
+      title: '案例首页',
+    },
   },
 }
