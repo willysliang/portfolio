@@ -9,6 +9,8 @@
 import { lazy } from 'react'
 import { getPersonalChildrenPages, PersonPath } from './personalRoute'
 import { IRouteObj } from './type'
+import { DemoPages } from './demoRoute'
+import { getPageRoutes } from '../router.utils'
 
 /** 路由表集合 */
 export const Pages: IRouteObj = {
@@ -60,5 +62,15 @@ export const Pages: IRouteObj = {
       needLogin: false,
     },
     element: lazy(() => import('@/pages/system/login')),
+  },
+  DEMO: {
+    path: '/demo',
+    meta: {
+      title: '案例',
+      needLogin: false,
+    },
+    element: lazy(() => import('@/views/index')),
+    redirect: '/demo/c',
+    children: getPageRoutes<any>(DemoPages),
   },
 }

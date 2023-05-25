@@ -15,7 +15,7 @@ import {
   UnorderedListOutline,
   UserOutline,
 } from 'antd-mobile-icons'
-import { Pages, DemoPages, whiteList } from '@/router/constant'
+import { Pages, whiteList } from '@/router/constant'
 
 /** 标签导航数据子集约束 */
 interface ItabItem {
@@ -41,8 +41,8 @@ const tablist: ItabItem[] = [
     badge: '5',
   },
   {
-    key: DemoPages.DEMO.path,
-    title: DemoPages.DEMO.meta.title,
+    key: Pages.DEMO.path,
+    title: Pages.DEMO.meta.title,
     icon: <AntOutline />,
   },
   {

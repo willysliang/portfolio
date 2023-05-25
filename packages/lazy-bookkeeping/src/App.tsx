@@ -7,37 +7,18 @@
  */
 
 import React from 'react'
-import { Outlet, useRoutes } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 import Tabbar from '@/components/layout/tabbar'
-import './assets/styles/index.scss'
-import routes from './router/routes'
-// import RouteBeforeEach from './router/RouteBeforeEach'
 import transformRoutes from './router'
+import './assets/styles/index.scss'
 
 function App() {
-  const elements = useRoutes(transformRoutes(routes))
+  const elements = useRoutes(transformRoutes)
 
   return (
     <div className="App">
-      {/* <Routes>
-        {routes.map((route) => {
-          return (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={
-                <RouteBeforeEach route={route}>
-                  <route.element />
-                </RouteBeforeEach>
-              }
-            />
-          )
-        })}
-      </Routes> */}
+      {/* 路由 */}
       {elements}
-
-      {/* 子路由的存放位置 */}
-      <Outlet />
 
       {/* 导航栏 */}
       <Tabbar />

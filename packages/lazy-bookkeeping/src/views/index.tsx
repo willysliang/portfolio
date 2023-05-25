@@ -7,9 +7,10 @@
  */
 
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const Demo = () => {
-  return <div>demo</div>
+  return <Outlet />
 }
 
 export default Demo

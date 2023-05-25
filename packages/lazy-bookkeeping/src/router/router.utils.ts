@@ -6,18 +6,23 @@
  * @ Description: 路由工具包
  */
 
-import { IRouteItem, IRouteObj } from "./route/type"
-import { Pages } from "./constant"
+import { IRouteItem, IRouteObj } from './route/type'
+import { Pages } from './constant'
 
 /** 获取各模块的所有路由 */
-export const getPageRoutes = <T = IRouteItem> (PagesObj: IRouteObj = Pages, basePath = ''): T[] => {
+export const getPageRoutes = <T = IRouteItem>(
+  PagesObj: IRouteObj = Pages,
+  basePath = '',
+): T[] => {
   const pageRoutes: any = []
   for (const [, value] of Object.entries(PagesObj)) {
-    const { path, meta, element } = value
+    const { path, meta, element, children, redirect } = value
     pageRoutes.push({
       path: `${basePath}${path}`,
       meta,
       element,
+      children,
+      redirect,
     })
   }
   return pageRoutes

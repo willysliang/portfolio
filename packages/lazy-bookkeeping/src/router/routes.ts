@@ -6,7 +6,7 @@
  * @ Description: 路由表
  */
 
-import { Pages, DemoPages, PersonalPages, HousePages } from './constant'
+import { Pages, PersonalPages, HousePages } from './constant'
 import { getPageRoutes } from './router.utils'
 
 const routes = [
@@ -15,12 +15,6 @@ const routes = [
     path: '/',
   },
   ...getPageRoutes<any>(),
-  /** 插入 demo路由 */
-  {
-    path: DemoPages.DEMO.path,
-    meta: DemoPages.DEMO.meta,
-    element: DemoPages.DEMO.element,
-  },
   ...getPageRoutes<any>(PersonalPages, '/personal'),
   ...getPageRoutes<any>(HousePages),
 ]
