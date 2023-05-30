@@ -69,7 +69,7 @@ export const Pages: IRouteObj = {
       title: '案例',
       needLogin: false,
     },
-    element: lazy(() => import('@/views/index')),
+    element: lazy(() => import('@/visualEditor/pages/index')),
     redirect: `/demo/${DemoPages.INDEX.path}`,
     children: getPageRoutes<any>(DemoPages),
   },

@@ -13,9 +13,9 @@ import { IRouteObj } from './type'
 export const DemoPages: IRouteObj = {
   INDEX: {
     path: 'index',
-    element: lazy(() => import('@/views/home')),
+    element: lazy(() => import('@/visualEditor/pages/home')),
     meta: { 
-      title: '案例首页',
+      title: '可视化拖拽编辑器首页',
     },
   },
 }

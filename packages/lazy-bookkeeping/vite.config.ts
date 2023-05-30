@@ -52,6 +52,9 @@ export default defineConfig({
       '#': path.resolve(__dirname, './src/types'),
     },
   },
+  esbuild: {
+    jsxInject: "import React from 'react'", // 为每个 tsx jsx 自动引入 React，不用手动引入了
+  },
   build: {
     // es2020 支持 import.meta 语法
     target: 'es2020',
@@ -59,7 +62,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
       },
-    }
+    },
   },
   server: {
     port: 4002, // 类型： number 指定服务器端口;
