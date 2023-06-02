@@ -1,0 +1,34 @@
+@import './_variable.scss';
+
+@mixin pos {
+  content: '';
+  position: absolute;
+  top: -0.1rem;
+  right: -0.1rem;
+  bottom: -0.1rem;
+  left: -0.1rem;
+}
+
+.visual-editor__block {
+  position: absolute;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  user-select: none;
+  &.editor-block__mask {
+    &::after {
+      @include pos();
+      pointer-events: none;
+      border: 0.1rem solid transparent;
+      background-color: transparent;
+      z-index: 1;
+    }
+  }
+  &.editor-block__active {
+    &::before {
+      @include pos();
+      border: 0.1rem dashed $primary;
+      z-index: 2;
+    }
+  }
+}

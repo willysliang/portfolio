@@ -2,7 +2,7 @@
  * @ Author: willy <willysliang@qq.com>
  * @ Create Time: 2023-05-29 09:48:00
  * @ Modifier by: willy <willysliang@qq.com>
- * @ Modifier time: 2023-05-30 09:49:03
+ * @ Modifier time: 2023-05-31 10:22:46
  * @ Description:  VisualEditor 类型约束
  */
 
@@ -46,13 +46,13 @@ export interface VisualEditorBlockData {
    * 编辑器编辑的数据类型
    */
   export interface VisualEditorValue {
+    blocks: Array<VisualEditorBlockData>
     /** 画布容器 */
     container: {
       style: {
         width: number | string
         height: number | string
       }
-      blocks: Array<VisualEditorBlockData>
     }
   }
   

@@ -2,7 +2,7 @@
  * @ Author: willy <willysliang@qq.com>
  * @ Create Time: 2023-05-29 10:01:44
  * @ Modifier by: willy <willysliang@qq.com>
- * @ Modifier time: 2023-05-30 09:49:54
+ * @ Modifier time: 2023-06-02 09:57:30
  * @ Description: createVisualConfig - 创建编辑器的预设内容
  */
 
@@ -47,4 +47,4 @@ export function createVisualConfig() {
 }
 
 /** 创建编辑器的预设内容的返回值 */
-export type visualEditorConfig = ReturnType<typeof createVisualConfig>
+export type VisualEditorConfig = ReturnType<typeof createVisualConfig>
