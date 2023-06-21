@@ -2,11 +2,40 @@
  * @ Author: willy <willysliang@qq.com>
  * @ Create Time: 2023-05-29 10:01:44
  * @ Modifier by: willy <willysliang@qq.com>
- * @ Modifier time: 2023-06-02 09:57:30
+ * @ Modifier time: 2023-06-13 13:21:52
  * @ Description: createVisualConfig - 创建编辑器的预设内容
  */
 
-import { VisualEditorComponent } from "../types"
+import { VisualEditorBlockData, VisualEditorComponent } from '../types'
+
+/**
+ * 创建一个 block 的组件数据
+ */
+export function createVisualBlock({
+  top,
+  left,
+  component,
+}: {
+  top: number
+  left: number
+  component: VisualEditorComponent
+}): VisualEditorBlockData {
+  return {
+    componentKey: component.key,
+    controller: {
+      adjustPosition: true,
+      focus: false,
+      hasReasize: false,
+    },
+    style: {
+      top,
+      left,
+      width: 0,
+      height: 0,
+      zIndex: 0,
+    },
+  }
+}
 
 /**
  * 创建编辑器的预设内容
