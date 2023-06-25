@@ -2,12 +2,13 @@
  * @ Author: willy <willysliang@qq.com>
  * @ Create Time: 2023-05-30 09:50:57
  * @ Modifier by: willy <willysliang@qq.com>
- * @ Modifier time: 2023-05-30 09:53:02
+ * @ Modifier time: 2023-06-25 17:37:27
  * @ Description: visualConfig - 模拟的组件数据项配置
  */
 
 import React from 'react'
-import { Button, Input } from 'antd-mobile'
+// import { Button, Input } from 'antd-mobile'
+import { Button, Input } from "antd"
 import { createVisualConfig } from './createVisualConfig'
 
 /** 模拟的组件 */
@@ -21,8 +22,8 @@ export const mockCompConfigList = [
   {
     key: 'button',
     label: '按钮',
-    preview: () => <Button type="button">预览按钮</Button>,
-    render: () => <Button type="button">渲染按钮</Button>,
+    preview: () => <Button type="primary">预览按钮</Button>,
+    render: () => <Button type="primary">渲染按钮</Button>,
   },
   {
     key: 'input',

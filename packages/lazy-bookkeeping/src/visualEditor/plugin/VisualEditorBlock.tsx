@@ -2,8 +2,7 @@
  * @ Author: willy <willysliang@qq.com>
  * @ Create Time: 2023-06-01 13:20:40
  * @ Modifier by: willy <willysliang@qq.com>
- * @ Modifier time: 2023-06-02 09:57:50
- * @ Description: 编辑器的块
+ * @ Modifier time: 2023-06-25 16:45:32
  */
 
 import React, { useEffect, useMemo, useRef } from 'react'
@@ -16,8 +15,8 @@ import { useUpdate } from '../hooks/useUpdate'
 interface VisualEditorBlockProps {
   block: VisualEditorBlockData
   config: VisualEditorConfig
-  onMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void
-  onContextMenu: (e: React.MouseEvent<HTMLDivElement>) => void
+  onMouseDown?: (e: React.MouseEvent<HTMLDivElement>) => void
+  onContextMenu?: (e: React.MouseEvent<HTMLDivElement>) => void
   editing?: boolean
   preview?: boolean
 }

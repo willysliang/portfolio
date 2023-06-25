@@ -22,7 +22,7 @@
     "@icon-park/react": "^1.4.2",
     "@reduxjs/toolkit": "^1.9.1",
     "@willy/utils": "workspace:^1.0.0",
-    "antd": "^5.1.4",
+    "antd": "^5.4.2",
     "antd-mobile": "^5.28.0",
     "antd-mobile-icons": "^0.3.0",
     "classnames": "^2.3.2",

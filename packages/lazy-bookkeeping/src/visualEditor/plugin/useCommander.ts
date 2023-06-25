@@ -2,7 +2,7 @@
  * @ Author: willy <willysliang@qq.com>
  * @ Create Time: 2023-05-30 09:55:01
  * @ Modifier by: willy <willysliang@qq.com>
- * @ Modifier time: 2023-05-31 10:09:55
+ * @ Modifier time: 2023-06-25 17:05:02
  * @ Description: 命令调度者
  */
 
@@ -101,7 +101,7 @@ export function useCommander() {
 
         // 如果命令执行后，不需要进入命令队列，就直接结束
         if (commandRef.current.followQueue === false) {
-          return undefined
+          return void 0
         }
 
         // 否则，将命令队列中剩余的命令都删除，保留 current 及其之前的命令
@@ -147,7 +147,7 @@ export function useCommander() {
       const keyNames = keyHash.join('+')
 
       state.commandList.forEach(({ current: { keyboard, name } }) => {
-        if (!keyboard) return undefined
+        if (!keyboard) return void 0
 
         const keys = Array.isArray(keyboard) ? keyboard : [keyboard]
 

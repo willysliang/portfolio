@@ -53,7 +53,7 @@ export default defineConfig({
     },
   },
   esbuild: {
-    jsxInject: "import React from 'react'", // 为每个 tsx jsx 自动引入 React，不用手动引入了
+    // jsxInject: "import React from 'react'", // 为每个 tsx jsx 自动引入 React，不用手动引入了
   },
   build: {
     // es2020 支持 import.meta 语法
